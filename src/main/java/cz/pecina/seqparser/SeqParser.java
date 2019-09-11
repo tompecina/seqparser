@@ -49,7 +49,6 @@ final class SeqParser {
 
   // constants
   private static final Pattern RE_OPT = Pattern.compile("^-[-]?[\\p{Alpha}_].*$");
-  private static final Pattern RE_SPLIT = Pattern.compile("(?:^|,)((['\"])(?:[^\\\\2])*\\2|[^,]*)");
   private static final Pattern RE_KW = Pattern.compile("^(?:([^=]+)=)?(?:(['\"])([^\\\\2]*)\\2|([^'\"].*))$");
 
   /**
@@ -63,6 +62,7 @@ final class SeqParser {
    */
   public static CommandLine parse(final Options options, final String[] args, final boolean stopOnNonOption)
       throws ParseException {
+    final Pattern RE_SPLIT = Pattern.compile(String.format("(?:^|%c)((['\"])(?:[^\\\\2])*\\2|[^%1$c]*)", options.getSep()));
     final CommandLine cmd = new CommandLine();
     boolean stopParsing = false;
     Option option = null;
@@ -101,15 +101,12 @@ final class SeqParser {
       } else {
         final Matcher splitMatcher = RE_SPLIT.matcher(arg);
         while (splitMatcher.find()) {
-          System.out.println(splitMatcher);
           final String res = splitMatcher.toMatchResult().group(1);
-          System.out.println(res);
           final Matcher kwMatcher = RE_KW.matcher(res);
           while (kwMatcher.find()) {
             final MatchResult kwRes = kwMatcher.toMatchResult();
             final String kw = kwRes.group(1);
             final String val = (kwRes.group(3) != null) ? kwRes.group(3) : kwRes.group(4);
-            System.out.println("  kw: " + kw + " val: " + val);
             if (kw == null) {
               if (subSize == 0) {
                 throw new ParseException("No positional parameters allowed for this option");

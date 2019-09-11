@@ -50,7 +50,7 @@ public class Options {
   private List<Option> options = new ArrayList<>();
   private Map<String, Option> shortMap = new HashMap<>();
   private Map<String, Option> longMap = new HashMap<>();
-  private String sep = ",";
+  private char sep = ',';
 
   /**
    * Gets the option using the short option string.
@@ -100,7 +100,7 @@ public class Options {
    *
    * @return the separator
    */
-  public String getSep() {
+  public char getSep() {
     return sep;
   }
 
@@ -109,7 +109,7 @@ public class Options {
    *
    * @param sep the separator
    */
-  public void setSep(final String sep) {
+  public void setSep(final char sep) {
     this.sep = sep;
   }
 
