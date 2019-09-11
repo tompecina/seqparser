@@ -108,9 +108,11 @@ public class Options {
    * Sets the separator string. It is used to divide sub-parameter values.
    *
    * @param sep the separator
+   * @return the options object, to facilitate chaining
    */
-  public void setSep(final char sep) {
+  public Options setSep(final char sep) {
     this.sep = sep;
+    return this;
   }
 
   /**

@@ -36,7 +36,7 @@ import org.apache.commons.cli.ParseException;
  * @author Tomáš Pecina
  * @version 1.0.0
  */
-final class SeqParser {
+public final class SeqParser {
 
   // static logger
   private static final Logger log = Logger.getLogger(SeqParser.class.getName());
@@ -62,7 +62,7 @@ final class SeqParser {
    */
   public static CommandLine parse(final Options options, final String[] args, final boolean stopOnNonOption)
       throws ParseException {
-    final Pattern RE_SPLIT = Pattern.compile(String.format("(?:^|%c)((['\"])(?:[^\\\\2])*\\2|[^%1$c]*)", options.getSep()));
+    final Pattern reSplit = Pattern.compile(String.format("(?:^|%c)((['\"])(?:[^\\\\2])*\\2|[^%1$c]*)", options.getSep()));
     final CommandLine cmd = new CommandLine();
     boolean stopParsing = false;
     Option option = null;
@@ -99,7 +99,7 @@ final class SeqParser {
           throw new ParseException("Invalid option: " + arg);
         }
       } else {
-        final Matcher splitMatcher = RE_SPLIT.matcher(arg);
+        final Matcher splitMatcher = reSplit.matcher(arg);
         while (splitMatcher.find()) {
           final String res = splitMatcher.toMatchResult().group(1);
           final Matcher kwMatcher = RE_KW.matcher(res);
