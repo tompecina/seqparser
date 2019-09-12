@@ -79,6 +79,15 @@ public class Parameter {
   }
 
   /**
+   * Adds a sub-parameter.
+   *
+   * @param subParameter the sub-parameter
+   */
+  public void addSubParameter(final SubParameter subParameter) {
+    subParameters.add(subParameter);
+  }
+
+  /**
    * Gets the map of keyword sub-parameters.
    *
    * @return the map of keyword sub-parameters
@@ -88,12 +97,13 @@ public class Parameter {
   }
 
   /**
-   * Adds a sub-parameter.
+   * Gets a keyword sub-parameter.
    *
-   * @param subParameter the sub-parameter
+   * @param kwy the keyword
+   * @return the sub-parameter
    */
-  public void addSubParameter(final SubParameter subParameter) {
-    subParameters.add(subParameter);
+  public SubParameter getKwSubParameter(final String key) {
+    return kwSubParameters.get(key);
   }
 
   /**
