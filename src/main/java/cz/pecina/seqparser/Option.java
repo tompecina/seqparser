@@ -78,6 +78,15 @@ public class Option {
   }
 
   /**
+   * Gets the name of the option, i.e. the long option string, or the short one if empty.
+   *
+   * @return the name of the option
+   */
+  public String getName() {
+    return (longOpt != null) ? longOpt : shortOpt;
+  }
+
+  /**
    * Gets the minimum number of sub-parameters.
    *
    * @return the minimum number of sub-parameters
