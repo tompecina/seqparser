@@ -69,6 +69,16 @@ public class Parameter {
   }
 
   /**
+   * Gets a sub-parameter.
+   *
+   * @param idx the index
+   * @return the sub-parameter
+   */
+  public SubParameter getSubParameter(final int idx) {
+    return subParameters.get(idx);
+  }
+
+  /**
    * Gets the map of keyword sub-parameters.
    *
    * @return the map of keyword sub-parameters
