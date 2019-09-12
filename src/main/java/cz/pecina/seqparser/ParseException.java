@@ -38,7 +38,7 @@ public class ParseException extends Exception {
   // for description see Object
   @Override
   public String toString() {
-    return "ParseException";
+    return super.toString();
   }
 
   /**

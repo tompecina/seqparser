@@ -75,6 +75,20 @@ public interface ParameterType {
     });
 
   /**
+   * Predefined non-negative integer type.
+   */
+  public SubOption NonNegInteger = new SubOption(new ParameterType() {
+      public boolean check(final java.lang.String str) {
+        try {
+          final int res = java.lang.Integer.parseInt(str);
+          return res >= 0;
+        } catch (final NumberFormatException exception) {
+          return false;
+        }
+      }
+    });
+
+  /**
    * Predefined float type.
    */
   public SubOption Float = new SubOption(new ParameterType() {
@@ -95,7 +109,7 @@ public interface ParameterType {
       public boolean check(final java.lang.String str) {
         try {
           final float res = java.lang.Float.parseFloat(str);
-          return res > 0;
+          return res > 0f;
         } catch (final NumberFormatException exception) {
           return false;
         }
