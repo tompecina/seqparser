@@ -40,16 +40,16 @@ public interface ParameterType {
   /**
    * Predefined string type.
    */
-  public ParameterType String = new ParameterType() {
+  public SubOption String = new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         return true;
       }
-    };
+    });
 
   /**
    * Predefined integer type.
    */
-  public ParameterType Integer = new ParameterType() {
+  public SubOption Integer = new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         try {
           java.lang.Integer.parseInt(str);
@@ -58,12 +58,12 @@ public interface ParameterType {
           return false;
         }
       }
-    };
+    });
 
   /**
    * Predefined positive integer type.
    */
-  public ParameterType PosInteger = new ParameterType() {
+  public SubOption PosInteger = new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         try {
           final int res = java.lang.Integer.parseInt(str);
@@ -72,12 +72,12 @@ public interface ParameterType {
           return false;
         }
       }
-    };
+    });
 
   /**
    * Predefined float type.
    */
-  public ParameterType Float = new ParameterType() {
+  public SubOption Float = new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         try {
           java.lang.Float.parseFloat(str);
@@ -86,12 +86,12 @@ public interface ParameterType {
           return false;
         }
       }
-    };
+    });
 
   /**
    * Predefined positive float type.
    */
-  public ParameterType PosFloat = new ParameterType() {
+  public SubOption PosFloat = new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         try {
           final float res = java.lang.Float.parseFloat(str);
@@ -100,5 +100,5 @@ public interface ParameterType {
           return false;
         }
       }
-    };
+    });
 }
