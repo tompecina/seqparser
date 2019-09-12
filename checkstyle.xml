@@ -53,6 +53,8 @@
        <property name="message" value="Line has trailing spaces."/>
     </module>
 
+    <module name="SuppressWarningsFilter" />
+
     <module name="TreeWalker">
         <module name="OuterTypeFilename"/>
         <module name="IllegalTokenText">
@@ -361,6 +363,8 @@
         <!-- See http://checkstyle.sourceforge.net/config_misc.html -->
         <module name="FinalParameters"/>
         <module name="TodoComment"/>
+
+        <module name="SuppressWarningsHolder" />
 
     </module>
 </module>

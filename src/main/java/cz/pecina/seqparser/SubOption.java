@@ -30,6 +30,7 @@ import java.util.logging.Logger;
  * @author Tomáš Pecina
  * @version 1.0.0
  */
+@SuppressWarnings("checkstyle:ConstantName")
 public class SubOption {
 
   // static logger
@@ -40,6 +41,10 @@ public class SubOption {
   public String toString() {
     return "SubOption";
   }
+
+  // utility objects
+  public static final SubOption String = new SubOption(String.class);
+  public static final SubOption Number = new SubOption(Number.class);
 
   // fields
   private Class<?> type;
