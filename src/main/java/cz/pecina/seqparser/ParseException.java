@@ -1,4 +1,4 @@
-/* SubOption.java
+/* ParseException.java
  *
  * Copyright (C) 2015-19, Tomas Pecina <tomas@pecina.cz>
  *
@@ -25,41 +25,29 @@ package cz.pecina.seqparser;
 import java.util.logging.Logger;
 
 /**
- * Sub-option object.
+ * Parsing exception.
  *
  * @author Tomáš Pecina
  * @version 1.0.0
  */
-@SuppressWarnings("checkstyle:ConstantName")
-public class SubOption {
+public class ParseException extends Exception {
 
   // static logger
-  private static final Logger log = Logger.getLogger(SubOption.class.getName());
+  private static final Logger log = Logger.getLogger(ParseException.class.getName());
 
   // for description see Object
   @Override
   public String toString() {
-    return "SubOption";
-  }
-
-  // fields
-  private ParameterType type;
-
-  /**
-   * Gets the type of the sub-option.
-   *
-   * @return the type of the sub-option
-   */
-  public ParameterType getType() {
-    return type;
+    return "ParseException";
   }
 
   /**
-   * Creates the sub-option object.
+   * Creates a new ParseException with the specified detail message.
    *
-   * @param type the type of the sub-option
+   * @param message the detail message
    */
-  public SubOption(final ParameterType type) {
-    this.type = type;
+  public ParseException(final String message)
+  {
+    super(message);
   }
 }

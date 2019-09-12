@@ -23,8 +23,6 @@
 package cz.pecina.seqparser;
 
 import java.util.logging.Logger;
-import org.apache.commons.cli.ParseException;
-import org.apache.commons.cli.TypeHandler;
 
 /**
  * Sub-parameter value.
@@ -45,8 +43,7 @@ public class SubParameter {
 
   // fields
   private SubOption subOption;
-  private String rawValue;
-  private Object value;
+  private String value;
 
   /**
    * Gets the sub-option.
@@ -58,21 +55,39 @@ public class SubParameter {
   }
 
   /**
-   * Gets the raw (string) value.
+   * Checks if the value is empty.
    *
-   * @return the raw value
+   * @return <code>true</code> of the value is empty
    */
-  public String getRawValue() {
-    return rawValue;
+  public boolean isEmpty() {
+    return (value == null) || (value.length() == 0);
   }
 
   /**
-   * Gets the converted value.
+   * Gets the raw (string) value.
    *
-   * @return the converted value
+   * @return the raw (string) value
    */
-  public Object getValue() {
+  public String getAsString() {
     return value;
+  }
+
+  /**
+   * Gets the value as integer.
+   *
+   * @return the integer value
+   */
+  public int getAsInt() {
+    return Integer.parseInt(value);
+  }
+
+  /**
+   * Gets the value as float.
+   *
+   * @return the float value
+   */
+  public float getAsFloat() {
+    return Float.parseFloat(value);
   }
 
   /**
@@ -83,13 +98,10 @@ public class SubParameter {
    * @throws ParseException on parse error
    */
   public SubParameter(final String str, final SubOption subOption) throws ParseException {
-    this.rawValue = str;
+    this.value = str;
     this.subOption = subOption;
-    final Class<?> type = subOption.getType();
-    if (type == String.class) {
-      value = str;
-    } else {
-      value = TypeHandler.createValue(str, type);
+    if (!subOption.getType().check(str)) {
+      throw new ParseException("Invalid parameter value: " + str);
     }
   }
 }
