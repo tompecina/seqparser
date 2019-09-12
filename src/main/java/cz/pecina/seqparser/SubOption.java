@@ -42,7 +42,7 @@ public class SubOption {
     return "SubOption";
   }
 
-  // utility objects
+  // predefined objects
   public static final SubOption String = new SubOption(String.class);
   public static final SubOption Number = new SubOption(Number.class);
 
