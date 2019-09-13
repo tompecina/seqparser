@@ -94,6 +94,26 @@ public interface ParameterType {
     });
 
   /**
+   * Predefined integer range type.
+   *
+   * @param min lower limit
+   * @param max upper limit
+   * @return the new class
+   */
+  static SubOption IntegerRange(final int min, final int max) {
+    return new SubOption(new ParameterType() {
+      public boolean check(final java.lang.String str) {
+        try {
+          final int res = java.lang.Integer.parseInt(str);
+          return (res >= min) && (res <= max);
+        } catch (final NumberFormatException exception) {
+          return false;
+        }
+      }
+    });
+  }
+
+  /**
    * Predefined float type.
    */
   @SuppressWarnings("checkstyle:ConstantName")
