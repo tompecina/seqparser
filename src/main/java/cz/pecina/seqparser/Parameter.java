@@ -99,11 +99,21 @@ public class Parameter {
   /**
    * Gets a keyword sub-parameter.
    *
-   * @param kwy the keyword
+   * @param key the keyword
    * @return the sub-parameter
    */
   public SubParameter getKwSubParameter(final String key) {
     return kwSubParameters.get(key);
+  }
+
+  /**
+   * Checks if a keyword sub-parameter is set.
+   *
+   * @param key the keyword
+   * @return <code>true</code> if the sub-parameter is set
+   */
+  public boolean hasKwSubParameter(final String key) {
+    return kwSubParameters.containsKey(key);
   }
 
   /**

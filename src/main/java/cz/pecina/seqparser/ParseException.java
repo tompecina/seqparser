@@ -46,8 +46,7 @@ public class ParseException extends Exception {
    *
    * @param message the detail message
    */
-  public ParseException(final String message)
-  {
+  public ParseException(final String message) {
     super(message);
   }
 }

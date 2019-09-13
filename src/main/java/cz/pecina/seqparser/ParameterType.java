@@ -33,14 +33,16 @@ public interface ParameterType {
   /**
    * Type-checks the string.
    *
+   * @param str the string to be checked
    * @return <code>true</code> if correct type
    */
-  public abstract boolean check(final java.lang.String str);
+  boolean check(java.lang.String str);
 
   /**
    * Predefined string type.
    */
-  public SubOption String = new SubOption(new ParameterType() {
+  @SuppressWarnings("checkstyle:ConstantName")
+  SubOption String = new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         return true;
       }
@@ -49,7 +51,8 @@ public interface ParameterType {
   /**
    * Predefined integer type.
    */
-  public SubOption Integer = new SubOption(new ParameterType() {
+  @SuppressWarnings("checkstyle:ConstantName")
+  SubOption Integer = new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         try {
           java.lang.Integer.parseInt(str);
@@ -63,7 +66,8 @@ public interface ParameterType {
   /**
    * Predefined positive integer type.
    */
-  public SubOption PosInteger = new SubOption(new ParameterType() {
+  @SuppressWarnings("checkstyle:ConstantName")
+  SubOption PosInteger = new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         try {
           final int res = java.lang.Integer.parseInt(str);
@@ -77,7 +81,8 @@ public interface ParameterType {
   /**
    * Predefined non-negative integer type.
    */
-  public SubOption NonNegInteger = new SubOption(new ParameterType() {
+  @SuppressWarnings("checkstyle:ConstantName")
+  SubOption NonNegInteger = new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         try {
           final int res = java.lang.Integer.parseInt(str);
@@ -91,7 +96,8 @@ public interface ParameterType {
   /**
    * Predefined float type.
    */
-  public SubOption Float = new SubOption(new ParameterType() {
+  @SuppressWarnings("checkstyle:ConstantName")
+  SubOption Float = new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         try {
           java.lang.Float.parseFloat(str);
@@ -105,7 +111,8 @@ public interface ParameterType {
   /**
    * Predefined positive float type.
    */
-  public SubOption PosFloat = new SubOption(new ParameterType() {
+  @SuppressWarnings("checkstyle:ConstantName")
+  SubOption PosFloat = new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         try {
           final float res = java.lang.Float.parseFloat(str);

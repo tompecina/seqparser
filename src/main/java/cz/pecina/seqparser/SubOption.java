@@ -30,7 +30,6 @@ import java.util.logging.Logger;
  * @author Tomáš Pecina
  * @version 1.0.0
  */
-@SuppressWarnings("checkstyle:ConstantName")
 public class SubOption {
 
   // static logger
