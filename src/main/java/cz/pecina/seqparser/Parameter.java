@@ -79,6 +79,15 @@ public class Parameter {
   }
 
   /**
+   * Gets the numbef of sub-parameters.
+   *
+   * @return the number of sub-parameters
+   */
+  public int getSubParameterCount() {
+    return subParameters.size();
+  }
+
+  /**
    * Adds a sub-parameter.
    *
    * @param subParameter the sub-parameter
