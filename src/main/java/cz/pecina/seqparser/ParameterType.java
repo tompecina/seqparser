@@ -100,6 +100,7 @@ public interface ParameterType {
    * @param max upper limit
    * @return the new class
    */
+  @SuppressWarnings("checkstyle:MethodName")
   static SubOption IntegerRange(final int min, final int max) {
     return new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
