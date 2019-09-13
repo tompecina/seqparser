@@ -83,7 +83,7 @@ public class Parameter {
    *
    * @return the number of sub-parameters
    */
-  public int getSubParameterCount() {
+  public int getNumSubParameters() {
     return subParameters.size();
   }
 
