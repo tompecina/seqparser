@@ -122,4 +122,19 @@ public interface ParameterType {
         }
       }
     });
+
+  /**
+   * Predefined non-negative float type.
+   */
+  @SuppressWarnings("checkstyle:ConstantName")
+  SubOption NonNegFloat = new SubOption(new ParameterType() {
+      public boolean check(final java.lang.String str) {
+        try {
+          final float res = java.lang.Float.parseFloat(str);
+          return res >= 0f;
+        } catch (final NumberFormatException exception) {
+          return false;
+        }
+      }
+    });
 }
