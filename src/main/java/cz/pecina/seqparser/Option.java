@@ -149,6 +149,18 @@ public class Option {
    *
    * @param shortOpt the short option string
    * @param longOpt the long option string
+   * @param numParameters the number of sub-parameters
+   * @throws ParseException on invalid option string(s)
+   */
+  public Option(final String shortOpt, final String longOpt, final int numParameters) throws ParseException {
+    this(shortOpt, longOpt, numParameters, numParameters);
+  }
+
+  /**
+   * Creates the option object.
+   *
+   * @param shortOpt the short option string
+   * @param longOpt the long option string
    * @param minParameters the minimum number of sub-parameters
    * @param maxParameters the maximum number of sub-parameters
    * @throws ParseException on invalid option string(s)
