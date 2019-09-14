@@ -91,6 +91,15 @@ public class SubParameter {
   }
 
   /**
+   * Gets the value as double.
+   *
+   * @return the double value
+   */
+  public double getAsDouble() {
+    return Double.parseDouble(value);
+  }
+
+  /**
    * Creates and parses the sub-parameter.
    *
    * @param str the input string
