@@ -145,6 +145,17 @@ public class Option {
   }
 
   /**
+   * Creates the option object with no sub-parameters.
+   *
+   * @param shortOpt the short option string
+   * @param longOpt the long option string
+   * @throws ParseException on invalid option string(s)
+   */
+  public Option(final String shortOpt, final String longOpt) throws ParseException {
+    this(shortOpt, longOpt, 0, 0);
+  }
+
+  /**
    * Creates the option object.
    *
    * @param shortOpt the short option string
