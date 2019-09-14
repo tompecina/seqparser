@@ -73,6 +73,8 @@ public final class SeqParser {
     for (String arg : args) {
       if (stopParsing) {
         cmd.addRemArg(arg);
+      } else if (arg.equals("--")) {
+        stopParsing = true;
       } else if (RE_OPT.matcher(arg).matches()) {  // option
         option = arg.startsWith("--") ? options.getOptionLong(arg.substring(2)) : options.getOptionShort(arg.substring(1));
         if (option == null) {
