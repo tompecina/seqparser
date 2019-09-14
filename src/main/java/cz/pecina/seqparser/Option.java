@@ -48,7 +48,7 @@ public class Option {
 
   // constants
   private static final Pattern RE_SHORT = Pattern.compile("^[\\p{Alpha}_][\\p{Alnum}_]*$");
-  private static final Pattern RE_LONG = Pattern.compile("^[\\p{Alpha}_][-\\p{Alnum}_]*$");
+  private static final Pattern RE_LONG = Pattern.compile("^[\\p{Alpha}_][\\p{Alnum}_]*(-[\\p{Alnum}_]+)*$");
 
   // fields
   private String shortOpt;
@@ -187,7 +187,7 @@ public class Option {
     if ((longOpt != null) && !RE_LONG.matcher(longOpt).matches()) {
       throw new ParseException("Invalid long option string");
     }
-    if ((minParameters < 0) || (maxParameters < 0) || (minParameters > maxParameters)) {
+    if ((minParameters < 0) || (maxParameters < minParameters)) {
       throw new ParseException("Invalid number of positional parameters");
     }
     this.shortOpt = shortOpt;

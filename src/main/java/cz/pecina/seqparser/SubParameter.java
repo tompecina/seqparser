@@ -78,7 +78,7 @@ public class SubParameter {
    * @return the integer value
    */
   public int getAsInt() {
-    return Integer.parseInt(value);
+    return Integer.valueOf(value);
   }
 
   /**
@@ -87,7 +87,7 @@ public class SubParameter {
    * @return the float value
    */
   public float getAsFloat() {
-    return Float.parseFloat(value);
+    return Float.valueOf(value);
   }
 
   /**
@@ -96,7 +96,7 @@ public class SubParameter {
    * @return the double value
    */
   public double getAsDouble() {
-    return Double.parseDouble(value);
+    return Double.valueOf(value);
   }
 
   /**

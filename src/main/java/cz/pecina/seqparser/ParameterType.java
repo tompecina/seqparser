@@ -44,7 +44,7 @@ public interface ParameterType {
   @SuppressWarnings("checkstyle:ConstantName")
   SubOption String = new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
-        return true;
+        return str != null;
       }
     });
 
@@ -55,9 +55,9 @@ public interface ParameterType {
   SubOption Integer = new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         try {
-          java.lang.Integer.parseInt(str);
+          java.lang.Integer.valueOf(str);
           return true;
-        } catch (final NumberFormatException exception) {
+        } catch (final Exception exception) {
           return false;
         }
       }
@@ -70,9 +70,9 @@ public interface ParameterType {
   SubOption PosInteger = new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         try {
-          final int res = java.lang.Integer.parseInt(str);
+          final int res = java.lang.Integer.valueOf(str);
           return res > 0;
-        } catch (final NumberFormatException exception) {
+        } catch (final Exception exception) {
           return false;
         }
       }
@@ -85,9 +85,9 @@ public interface ParameterType {
   SubOption NonNegInteger = new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         try {
-          final int res = java.lang.Integer.parseInt(str);
+          final int res = java.lang.Integer.valueOf(str);
           return res >= 0;
-        } catch (final NumberFormatException exception) {
+        } catch (final Exception exception) {
           return false;
         }
       }
@@ -105,9 +105,9 @@ public interface ParameterType {
     return new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         try {
-          final int res = java.lang.Integer.parseInt(str);
+          final int res = java.lang.Integer.valueOf(str);
           return (res >= min) && (res <= max);
-        } catch (final NumberFormatException exception) {
+        } catch (final Exception exception) {
           return false;
         }
       }
@@ -121,9 +121,9 @@ public interface ParameterType {
   SubOption Float = new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         try {
-          java.lang.Float.parseFloat(str);
+          java.lang.Float.valueOf(str);
           return true;
-        } catch (final NumberFormatException exception) {
+        } catch (final Exception exception) {
           return false;
         }
       }
@@ -136,9 +136,9 @@ public interface ParameterType {
   SubOption PosFloat = new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         try {
-          final float res = java.lang.Float.parseFloat(str);
+          final float res = java.lang.Float.valueOf(str);
           return res > 0f;
-        } catch (final NumberFormatException exception) {
+        } catch (final Exception exception) {
           return false;
         }
       }
@@ -151,9 +151,9 @@ public interface ParameterType {
   SubOption NonNegFloat = new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         try {
-          final float res = java.lang.Float.parseFloat(str);
+          final float res = java.lang.Float.valueOf(str);
           return res >= 0f;
-        } catch (final NumberFormatException exception) {
+        } catch (final Exception exception) {
           return false;
         }
       }
@@ -172,9 +172,9 @@ public interface ParameterType {
     return new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         try {
-          final float res = java.lang.Float.parseFloat(str);
+          final float res = java.lang.Float.valueOf(str);
           return (res >= min) && (res <= max);
-        } catch (final NumberFormatException exception) {
+        } catch (final Exception exception) {
           return false;
         }
       }
@@ -188,9 +188,9 @@ public interface ParameterType {
   SubOption Double = new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         try {
-          java.lang.Double.parseDouble(str);
+          java.lang.Double.valueOf(str);
           return true;
-        } catch (final NumberFormatException exception) {
+        } catch (final Exception exception) {
           return false;
         }
       }
@@ -203,9 +203,9 @@ public interface ParameterType {
   SubOption PosDouble = new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         try {
-          final double res = java.lang.Double.parseDouble(str);
+          final double res = java.lang.Double.valueOf(str);
           return res > 0.0;
-        } catch (final NumberFormatException exception) {
+        } catch (final Exception exception) {
           return false;
         }
       }
@@ -218,9 +218,9 @@ public interface ParameterType {
   SubOption NonNegDouble = new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         try {
-          final double res = java.lang.Double.parseDouble(str);
+          final double res = java.lang.Double.valueOf(str);
           return res >= 0.0;
-        } catch (final NumberFormatException exception) {
+        } catch (final Exception exception) {
           return false;
         }
       }
@@ -239,9 +239,9 @@ public interface ParameterType {
     return new SubOption(new ParameterType() {
       public boolean check(final java.lang.String str) {
         try {
-          final double res = java.lang.Double.parseDouble(str);
+          final double res = java.lang.Double.valueOf(str);
           return (res >= min) && (res <= max);
-        } catch (final NumberFormatException exception) {
+        } catch (final Exception exception) {
           return false;
         }
       }

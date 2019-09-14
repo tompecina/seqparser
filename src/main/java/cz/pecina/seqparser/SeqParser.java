@@ -35,7 +35,7 @@ import java.util.regex.Pattern;
  * @author Tomáš Pecina
  * @version 1.0.0
  */
-public final class SeqParser {
+public class SeqParser {
 
   // static logger
   private static final Logger log = Logger.getLogger(SeqParser.class.getName());
@@ -59,7 +59,7 @@ public final class SeqParser {
    * @return the command line object
    * @throws ParseException on parsing error
    */
-  public static CommandLine parse(final Options options, final String[] args, final boolean stopOnNonOption)
+  public CommandLine parse(final Options options, final String[] args, final boolean stopOnNonOption)
       throws ParseException {
     final Pattern reSplit = Pattern.compile(String.format("(?:^|%c)((['\"])(?:[^\\\\2])*\\2|[^%1$c]*)", options.getSep()));
     final CommandLine cmd = new CommandLine();
@@ -137,6 +137,10 @@ public final class SeqParser {
     return cmd;
   }
 
-  // default constructor disabled
-  private SeqParser() { }
+  /**
+   * Create a new parser object.
+   */
+  public SeqParser() {
+    // no action
+  }
 }
