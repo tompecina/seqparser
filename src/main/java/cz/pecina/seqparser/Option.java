@@ -113,12 +113,13 @@ public class Option {
   }
 
   /**
-   * Gets the map of keyword sub-options.
+   * Gets a sub-option.
    *
-   * @return the map of keyword sub-options
+   * @param idx the index
+   * @return the sub-option
    */
-  public Map<String, SubOption> getKwSubOptions() {
-    return kwSubOptions;
+  public SubOption getSubOption(final int idx) {
+    return subOptions.get(idx);
   }
 
   /**
@@ -130,6 +131,25 @@ public class Option {
   public Option addSubOption(final SubOption subOption) {
     subOptions.add(subOption);
     return this;
+  }
+
+  /**
+   * Gets the map of keyword sub-options.
+   *
+   * @return the map of keyword sub-options
+   */
+  public Map<String, SubOption> getKwSubOptions() {
+    return kwSubOptions;
+  }
+
+  /**
+   * Gets a keyword sub-option.
+   *
+   * @param key the keyword
+   * @return the sub-option or <code>null</code> if not found
+   */
+  public SubOption getKwSubOption(final String key) {
+    return kwSubOptions.get(key);
   }
 
   /**

@@ -69,6 +69,15 @@ public class Parameter {
   }
 
   /**
+   * Gets the number of sub-parameters.
+   *
+   * @return the number of sub-parameters
+   */
+  public int getNumSubParameters() {
+    return subParameters.size();
+  }
+
+  /**
    * Gets a sub-parameter.
    *
    * @param idx the index
@@ -76,15 +85,6 @@ public class Parameter {
    */
   public SubParameter getSubParameter(final int idx) {
     return subParameters.get(idx);
-  }
-
-  /**
-   * Gets the numbef of sub-parameters.
-   *
-   * @return the number of sub-parameters
-   */
-  public int getNumSubParameters() {
-    return subParameters.size();
   }
 
   /**
@@ -103,6 +103,15 @@ public class Parameter {
    */
   public Map<String, SubParameter> getKwSubParameters() {
     return kwSubParameters;
+  }
+
+  /**
+   * Gets the number of keyword sub-parameters.
+   *
+   * @return the number of keyword sub-parameters
+   */
+  public int getNumKwSubParameters() {
+    return kwSubParameters.size();
   }
 
   /**

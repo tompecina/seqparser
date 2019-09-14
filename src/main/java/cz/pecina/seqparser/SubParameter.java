@@ -60,7 +60,7 @@ public class SubParameter {
    * @return <code>true</code> of the value is empty
    */
   public boolean isEmpty() {
-    return (value == null) || (value.length() == 0);
+    return value.isEmpty();
   }
 
   /**
@@ -109,7 +109,7 @@ public class SubParameter {
   public SubParameter(final String str, final SubOption subOption) throws ParseException {
     this.value = str;
     this.subOption = subOption;
-    if (!subOption.getType().check(str)) {
+    if ((str == null) || !subOption.getType().check(str)) {
       throw new ParseException("Invalid parameter value: " + str);
     }
   }

@@ -61,7 +61,8 @@ public class SeqParser {
    */
   public CommandLine parse(final Options options, final String[] args, final boolean stopOnNonOption)
       throws ParseException {
-    final Pattern reSplit = Pattern.compile(String.format("(?:^|%c)((['\"])(?:[^\\\\2])*\\2|[^%1$c]*)", options.getSep()));
+    final Pattern reSplit = Pattern.compile(
+        String.format("(?:^|%s)((['\"])(?:[^\\\\2])*\\2|[^%1$s]*)", Pattern.quote(String.valueOf(options.getSep()))));
     final CommandLine cmd = new CommandLine();
     boolean stopParsing = false;
     Option option = null;
