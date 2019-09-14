@@ -158,4 +158,93 @@ public interface ParameterType {
         }
       }
     });
+
+
+  /**
+   * Predefined float range type.
+   *
+   * @param min lower limit
+   * @param max upper limit
+   * @return the new class
+   */
+  @SuppressWarnings("checkstyle:MethodName")
+  static SubOption FloatRange(final float min, final float max) {
+    return new SubOption(new ParameterType() {
+      public boolean check(final java.lang.String str) {
+        try {
+          final float res = java.lang.Float.parseFloat(str);
+          return (res >= min) && (res <= max);
+        } catch (final NumberFormatException exception) {
+          return false;
+        }
+      }
+    });
+  }
+
+  /**
+   * Predefined double type.
+   */
+  @SuppressWarnings("checkstyle:ConstantName")
+  SubOption Double = new SubOption(new ParameterType() {
+      public boolean check(final java.lang.String str) {
+        try {
+          java.lang.Double.parseDouble(str);
+          return true;
+        } catch (final NumberFormatException exception) {
+          return false;
+        }
+      }
+    });
+
+  /**
+   * Predefined positive double type.
+   */
+  @SuppressWarnings("checkstyle:ConstantName")
+  SubOption PosDouble = new SubOption(new ParameterType() {
+      public boolean check(final java.lang.String str) {
+        try {
+          final double res = java.lang.Double.parseDouble(str);
+          return res > 0.0;
+        } catch (final NumberFormatException exception) {
+          return false;
+        }
+      }
+    });
+
+  /**
+   * Predefined non-negative double type.
+   */
+  @SuppressWarnings("checkstyle:ConstantName")
+  SubOption NonNegDouble = new SubOption(new ParameterType() {
+      public boolean check(final java.lang.String str) {
+        try {
+          final double res = java.lang.Double.parseDouble(str);
+          return res >= 0.0;
+        } catch (final NumberFormatException exception) {
+          return false;
+        }
+      }
+    });
+
+
+  /**
+   * Predefined double range type.
+   *
+   * @param min lower limit
+   * @param max upper limit
+   * @return the new class
+   */
+  @SuppressWarnings("checkstyle:MethodName")
+  static SubOption DoubleRange(final double min, final double max) {
+    return new SubOption(new ParameterType() {
+      public boolean check(final java.lang.String str) {
+        try {
+          final double res = java.lang.Double.parseDouble(str);
+          return (res >= min) && (res <= max);
+        } catch (final NumberFormatException exception) {
+          return false;
+        }
+      }
+    });
+  }
 }
