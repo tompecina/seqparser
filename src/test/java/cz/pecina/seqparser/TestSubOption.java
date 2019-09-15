@@ -33,7 +33,7 @@ public class TestSubOption extends TestCase {
         }
       };
     SubOption sub = new SubOption(par);
-    assertSame(sub.getType(), par);
+    assertSame(par, sub.getType());
     assertTrue(sub.getType().check(null));
   }
 }

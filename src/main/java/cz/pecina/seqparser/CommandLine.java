@@ -43,9 +43,11 @@ public class CommandLine {
     return "CommandLine";
   }
 
-  // fields
-  private List<Parameter> parameters = new ArrayList<>();
-  private List<String> remArgs = new ArrayList<>();
+  /** List of parsed parameters. */
+  protected final List<Parameter> parameters = new ArrayList<>();
+
+  /** List of remaining (unparsed) arguments. */
+  protected final List<String> remArgs = new ArrayList<>();
 
   /**
    * Gets the list of parameters.

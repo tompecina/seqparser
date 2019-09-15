@@ -29,7 +29,7 @@ public class TestParameter extends TestCase {
   public void testGetOption() {
     try {
       Option o = new Option("a", "b");
-      assertSame(new Parameter(o).getOption(), o);
+      assertSame(o, new Parameter(o).getOption());
     } catch (ParseException e) {
       fail(e.getMessage());
     }
@@ -42,12 +42,12 @@ public class TestParameter extends TestCase {
       SubParameter s2 = new SubParameter("99", ParameterType.Integer);
       p.addSubParameter(s1);
       p.addSubParameter(s2);
-      assertEquals(p.getSubParameters().size(), 2);
-      assertEquals(p.getNumSubParameters(), 2);
-      assertEquals(p.getSubParameters().get(0), s1);
-      assertEquals(p.getSubParameters().get(1), s2);
-      assertEquals(p.getSubParameter(0), s1);
-      assertEquals(p.getSubParameter(1), s2);
+      assertEquals(2, p.getSubParameters().size());
+      assertEquals(2, p.getNumSubParameters());
+      assertSame(s1, p.getSubParameters().get(0));
+      assertSame(s2, p.getSubParameters().get(1));
+      assertSame(s1, p.getSubParameter(0));
+      assertSame(s2, p.getSubParameter(1));
     } catch (ParseException e) {
       fail(e.getMessage());
     }
@@ -60,12 +60,12 @@ public class TestParameter extends TestCase {
       SubParameter s2 = new SubParameter("99", ParameterType.Integer);
       p.addKwSubParameter("x", s1);
       p.addKwSubParameter("y", s2);
-      assertEquals(p.getKwSubParameters().size(), 2);
-      assertEquals(p.getNumKwSubParameters(), 2);
-      assertEquals(p.getKwSubParameters().get("x"), s1);
-      assertEquals(p.getKwSubParameters().get("y"), s2);
-      assertEquals(p.getKwSubParameter("x"), s1);
-      assertEquals(p.getKwSubParameter("y"), s2);
+      assertEquals(2, p.getKwSubParameters().size());
+      assertEquals(2, p.getNumKwSubParameters());
+      assertSame(s1, p.getKwSubParameters().get("x"));
+      assertSame(s2, p.getKwSubParameters().get("y"));
+      assertSame(s1, p.getKwSubParameter("x"));
+      assertSame(s2, p.getKwSubParameter("y"));
       assertTrue(p.hasKwSubParameter("x"));
       assertTrue(p.hasKwSubParameter("y"));
       assertFalse(p.hasKwSubParameter("z"));

@@ -46,9 +46,15 @@ public class SeqParser {
     return "SeqParser";
   }
 
-  // constants
-  private static final Pattern RE_OPT = Pattern.compile("^-[-]?[\\p{Alpha}_].*$");
-  private static final Pattern RE_KW = Pattern.compile("^(?:([^=]+)=)?(?:(['\"])([^\\\\2]*)\\2|([^'\"].*))$");
+  /** Regex for checking option. */
+  public static final Pattern RE_OPT = Pattern.compile("^-[-]?[\\p{Alpha}_].*$");
+
+  /** Regex string for splitting sub-parameters. */
+  public static final String RES_SPLIT = "(?:^|%s)((['\"]).*?\\2|[^%1$s]*)";
+
+  /** Regex for parsing sub-parameters. */
+  public static final Pattern RE_KW =
+      Pattern.compile("^(?:([\\p{Alpha}_][\\p{Alnum}_]*(?:-[\\p{Alnum}_]+)*)=)?(['\"]?)(.*)\\2$");
 
   /**
    * Parses a string of arguments.
@@ -61,8 +67,7 @@ public class SeqParser {
    */
   public CommandLine parse(final Options options, final String[] args, final boolean stopOnNonOption)
       throws ParseException {
-    final Pattern reSplit = Pattern.compile(
-        String.format("(?:^|%s)((['\"])(?:[^\\\\2])*\\2|[^%1$s]*)", Pattern.quote(String.valueOf(options.getSep()))));
+    final Pattern reSplit = Pattern.compile(String.format(RES_SPLIT, Pattern.quote(String.valueOf(options.getSep()))));
     final CommandLine cmd = new CommandLine();
     boolean stopParsing = false;
     Option option = null;
@@ -107,9 +112,9 @@ public class SeqParser {
           final Matcher kwMatcher = RE_KW.matcher(res);
           while (kwMatcher.find()) {
             final MatchResult kwRes = kwMatcher.toMatchResult();
-            final String kw = kwRes.group(1);
-            final String val = (kwRes.group(3) != null) ? kwRes.group(3) : kwRes.group(4);
-            if (kw == null) {
+            final String key = kwRes.group(1);
+            final String val = kwRes.group(3);
+            if (key == null) {
               if (subSize == 0) {
                 throw new ParseException("No positional parameters allowed for this option");
               } else {
@@ -119,11 +124,11 @@ public class SeqParser {
                 }
               }
             } else {
-              final SubOption kwSubOption = kwSubOptions.get(kw);
+              final SubOption kwSubOption = kwSubOptions.get(key);
               if (kwSubOption == null) {
-                throw new ParseException("Keyword parameter " + kw + " not allowed for this option");
+                throw new ParseException("Keyword parameter \"" + key + "\" not allowed for this option");
               } else {
-                parameter.addKwSubParameter(kw, new SubParameter(val, kwSubOption));
+                parameter.addKwSubParameter(key, new SubParameter(val, kwSubOption));
               }
             }
           }

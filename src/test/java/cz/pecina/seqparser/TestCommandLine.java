@@ -31,8 +31,8 @@ public class TestCommandLine extends TestCase {
       CommandLine c = new CommandLine();
       Parameter p = new Parameter(new Option("a", "b"));
       c.addParameter(p);
-      assertEquals(c.getParameters().size(), 1);
-      assertSame(c.getParameters().get(0), p);
+      assertEquals(1, c.getParameters().size());
+      assertSame(p, c.getParameters().get(0));
     } catch (ParseException e) {
       fail(e.getMessage());
     }
@@ -42,7 +42,7 @@ public class TestCommandLine extends TestCase {
       CommandLine c = new CommandLine();
       String a = "a";
       c.addRemArg(a);
-      assertEquals(c.getRemArgs().size(), 1);
-      assertSame(c.getRemArgs().get(0), a);
+      assertEquals(1, c.getRemArgs().size());
+      assertSame(a, c.getRemArgs().get(0));
   }
 }

@@ -70,10 +70,10 @@ public class TestOption extends TestCase {
 
   public void testOption3() {
     try {
-      assertEquals(new Option("a", null, 2).getMinParameters(), 2);
-      assertEquals(new Option("a", null, 2).getMaxParameters(), 2);
-      assertEquals(new Option("a", null).getMinParameters(), 0);
-      assertEquals(new Option("a", null).getMaxParameters(), 0);
+      assertEquals(2, new Option("a", null, 2).getMinParameters());
+      assertEquals(2, new Option("a", null, 2).getMaxParameters());
+      assertEquals(0, new Option("a", null).getMinParameters());
+      assertEquals(0, new Option("a", null).getMaxParameters());
     } catch (ParseException e) {
       fail(e.getMessage());
     }
@@ -81,7 +81,7 @@ public class TestOption extends TestCase {
 
   public void testGetShortOpt() {
     try {
-      assertEquals(new Option("a", null).getShortOpt(), "a");
+      assertEquals("a", new Option("a", null).getShortOpt());
     } catch (ParseException e) {
       fail(e.getMessage());
     }
@@ -89,7 +89,7 @@ public class TestOption extends TestCase {
 
   public void testGetLongOpt() {
     try {
-      assertEquals(new Option(null, "a").getLongOpt(), "a");
+      assertEquals("a", new Option(null, "a").getLongOpt());
     } catch (ParseException e) {
       fail(e.getMessage());
     }
@@ -97,9 +97,9 @@ public class TestOption extends TestCase {
 
   public void testGetName() {
     try {
-      assertEquals(new Option("a", null).getName(), "a");
-      assertEquals(new Option(null, "a").getName(), "a");
-      assertEquals(new Option("a", "b").getName(), "b");
+      assertEquals("a", new Option("a", null).getName());
+      assertEquals("a", new Option(null, "a").getName());
+      assertEquals("b", new Option("a", "b").getName());
     } catch (ParseException e) {
       fail(e.getMessage());
     }
@@ -108,13 +108,13 @@ public class TestOption extends TestCase {
   public void testSubOptions() {
     try {
       Option o = new Option("a", null);
-      assertSame(o.addSubOption(ParameterType.String), o);
-      assertSame(o.addSubOption(ParameterType.Integer), o);
-      assertEquals(o.getSubOptions().size(), 2);
-      assertEquals(o.getSubOptions().get(0), ParameterType.String);
-      assertEquals(o.getSubOptions().get(1), ParameterType.Integer);
-      assertEquals(o.getSubOption(0), ParameterType.String);
-      assertEquals(o.getSubOption(1), ParameterType.Integer);
+      assertSame(o, o.addSubOption(ParameterType.String));
+      assertSame(o, o.addSubOption(ParameterType.Integer));
+      assertEquals(2, o.getSubOptions().size());
+      assertSame(ParameterType.String, o.getSubOptions().get(0));
+      assertSame(ParameterType.Integer, o.getSubOptions().get(1));
+      assertSame(ParameterType.String, o.getSubOption(0));
+      assertSame(ParameterType.Integer, o.getSubOption(1));
     } catch (ParseException e) {
       fail(e.getMessage());
     }
@@ -123,23 +123,41 @@ public class TestOption extends TestCase {
   public void testKwSubOptions() {
     try {
       Option o = new Option("a", null);
-      assertSame(o.addKwSubOption("b", ParameterType.String), o);
-      assertSame(o.addKwSubOption("c", ParameterType.Integer), o);
-      assertEquals(o.getKwSubOptions().size(), 2);
-      assertEquals(o.getKwSubOptions().get("b"), ParameterType.String);
-      assertEquals(o.getKwSubOptions().get("c"), ParameterType.Integer);
+      assertSame(o, o.addKwSubOption("b", ParameterType.String));
+      assertSame(o, o.addKwSubOption("c", ParameterType.Integer));
+      assertEquals(2, o.getKwSubOptions().size());
+      assertSame(ParameterType.String, o.getKwSubOptions().get("b"));
+      assertSame(ParameterType.Integer, o.getKwSubOptions().get("c"));
       assertNull(o.getKwSubOptions().get("d"));
-      assertEquals(o.getKwSubOption("b"), ParameterType.String);
-      assertEquals(o.getKwSubOption("c"), ParameterType.Integer);
+      assertSame(ParameterType.String, o.getKwSubOption("b"));
+      assertSame(ParameterType.Integer, o.getKwSubOption("c"));
       assertNull(o.getKwSubOption("d"));
     } catch (ParseException e) {
       fail(e.getMessage());
     }
   }
 
+  public void testAddKwSubOption() {
+    String[] succ = {"a", "A", "_", "aa", "a0", "a_", "a-b", "a-b0-d", "a-0-d", "a-bc-d0f", "ab-ce-e0g"};
+    String[] fail = {null, "", "0abc", "-abc", "0abc", "-abc", "abc-", "a--bc", "ab--c", "á"};
+    for (String t : succ) {
+      try {
+        new Option("a", null).addKwSubOption(t, ParameterType.String);
+      } catch (ParseException e) {
+        fail(t);
+      }
+    }
+    for (String t : fail) {
+      try {
+        new Option("a", null).addKwSubOption(t, ParameterType.String);
+        fail(t);
+      } catch (ParseException expected) { }
+    }
+  }
+
   public void testGetMinParameters() {
     try {
-      assertEquals(new Option("a", null, 2, 3).getMinParameters(), 2);
+      assertEquals(2, new Option("a", null, 2, 3).getMinParameters());
     } catch (ParseException e) {
       fail(e.getMessage());
     }
@@ -147,7 +165,7 @@ public class TestOption extends TestCase {
 
   public void testGetMaxParameters() {
     try {
-      assertEquals(new Option("a", null, 2, 3).getMaxParameters(), 3);
+      assertEquals(3, new Option("a", null, 2, 3).getMaxParameters());
     } catch (ParseException e) {
       fail(e.getMessage());
     }

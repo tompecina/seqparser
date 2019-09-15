@@ -41,8 +41,8 @@ public class SubOption {
     return "SubOption";
   }
 
-  // fields
-  private ParameterType type;
+  /** Type of the parameter. */
+  protected ParameterType type;
 
   /**
    * Gets the type of the sub-option.

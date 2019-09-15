@@ -357,7 +357,10 @@
         <module name="FinalClass"/>
         <module name="HideUtilityClassConstructor"/>
         <module name="InterfaceIsType"/>
-        <module name="VisibilityModifier"/>
+        <module name="VisibilityModifier">
+          <property name="protectedAllowed" value="true"/>
+          <property name="packageAllowed" value="false"/>
+        </module>
 
         <!-- Miscellaneous other checks.                   -->
         <!-- See http://checkstyle.sourceforge.net/config_misc.html -->

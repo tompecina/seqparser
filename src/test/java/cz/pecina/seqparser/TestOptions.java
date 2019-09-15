@@ -28,7 +28,7 @@ public class TestOptions extends TestCase {
 
   public void testSep() {
     try {
-      assertEquals(new Options().setSep(';').getSep(), ';');
+      assertEquals(';', new Options().setSep(';').getSep());
     } catch (ParseException e) {
       fail(e.getMessage());
     }
@@ -55,8 +55,8 @@ public class TestOptions extends TestCase {
       Option s = new Option("a", null);
       Option l = new Option(null, "b");
       o.addOption(s).addOption(l);
-      assertSame(o.getOptionShort("a"), s);
-      assertSame(o.getOptionLong("b"), l);
+      assertSame(s, o.getOptionShort("a"));
+      assertSame(l, o.getOptionLong("b"));
     } catch (ParseException e) {
       fail(e.getMessage());
     }

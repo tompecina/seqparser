@@ -46,17 +46,32 @@ public class Option {
     return "Option";
   }
 
-  // constants
-  private static final Pattern RE_SHORT = Pattern.compile("^[\\p{Alpha}_][\\p{Alnum}_]*$");
-  private static final Pattern RE_LONG = Pattern.compile("^[\\p{Alpha}_][\\p{Alnum}_]*(-[\\p{Alnum}_]+)*$");
+  /** Regex for testing a short option. */
+  public static final Pattern RE_SHORT = Pattern.compile("^[\\p{Alpha}_][\\p{Alnum}_]*$");
 
-  // fields
-  private String shortOpt;
-  private String longOpt;
-  private int minParameters;
-  private int maxParameters;
-  private List<SubOption> subOptions = new ArrayList<>();
-  private Map<String, SubOption> kwSubOptions = new HashMap<>();
+  /** Regex for testing a long option. */
+  public static final Pattern RE_LONG = Pattern.compile("^[\\p{Alpha}_][\\p{Alnum}_]*(-[\\p{Alnum}_]+)*$");
+
+  /** Regex for testing a sub-option. */
+  public static final Pattern RE_SUB = RE_LONG;
+
+  /** Short option string. */
+  protected String shortOpt;
+
+  /** Long option string. */
+  protected String longOpt;
+
+  /** Minimum number of parameters. */
+  protected int minParameters;
+
+  /** Maximum number of parameters. */
+  protected int maxParameters;
+
+  /** List of sub-options. */
+  protected final List<SubOption> subOptions = new ArrayList<>();
+
+  /** Map of keyword sub-options. */
+  protected final Map<String, SubOption> kwSubOptions = new HashMap<>();
 
   /**
    * Gets the short option string.
@@ -158,8 +173,12 @@ public class Option {
    * @param key the keyword
    * @param subOption the keyword sub-option
    * @return the option object, to facilitate chaining
+   * @throws ParseException on invalid sub-option string(s)
    */
-  public Option addKwSubOption(final String key, final SubOption subOption) {
+  public Option addKwSubOption(final String key, final SubOption subOption) throws ParseException {
+    if ((key == null) || !RE_SUB.matcher(key).matches()) {
+      throw new ParseException("Invalid sub-option string");
+    }
     kwSubOptions.put(key, subOption);
     return this;
   }

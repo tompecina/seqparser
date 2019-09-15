@@ -45,15 +45,19 @@ public class Parameter {
     return "Parameter";
   }
 
-  // fields
-  private Option option;
-  private List<SubParameter> subParameters = new ArrayList<>();
-  private Map<String, SubParameter> kwSubParameters = new HashMap<>();
+  /** The option describing the parameter. */
+  protected Option option;
+
+  /** List of sub-parameters. */
+  protected final List<SubParameter> subParameters = new ArrayList<>();
+
+  /** Map of keyword sub-parameters. */
+  protected final Map<String, SubParameter> kwSubParameters = new HashMap<>();
 
   /**
-   * Gets the option.
+   * Gets the option describing the parameter.
    *
-   * @return the option
+   * @return the option describing the parameter
    */
   public Option getOption() {
     return option;

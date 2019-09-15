@@ -41,9 +41,11 @@ public class SubParameter {
     return "SubParameter";
   }
 
-  // fields
-  private SubOption subOption;
-  private String value;
+  /** Sub-options describing the sub-parameter. */
+  protected SubOption subOption;
+
+  /** Raw (string) value of the sub-parameter. */
+  protected String value;
 
   /**
    * Gets the sub-option.

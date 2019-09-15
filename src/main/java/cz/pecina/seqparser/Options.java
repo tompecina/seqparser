@@ -27,7 +27,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
-import java.util.regex.Pattern;
 
 /**
  * Options object.
@@ -46,14 +45,20 @@ public class Options {
     return "Options";
   }
 
-  // constants
-  private static char DEFAULT_SEP = ',';
+  /** The default separator character. */
+  protected static final char DEFAULT_SEP = ',';
 
-  // fields
-  private List<Option> options = new ArrayList<>();
-  private Map<String, Option> shortMap = new HashMap<>();
-  private Map<String, Option> longMap = new HashMap<>();
-  private char sep = DEFAULT_SEP;
+  /** List of options. */
+  protected final List<Option> options = new ArrayList<>();
+
+  /** Map of options by short option string. */
+  protected final Map<String, Option> shortMap = new HashMap<>();
+
+  /** Map of options by long option string. */
+  protected final Map<String, Option> longMap = new HashMap<>();
+
+  /** The separator character. */
+  protected char sep = DEFAULT_SEP;
 
   /**
    * Gets the option using the short option string.
@@ -115,7 +120,7 @@ public class Options {
    * @throws ParseException on invalid separator
    */
   public Options setSep(final char sep) throws ParseException {
-    if (Pattern.matches("[\\s]", String.valueOf(sep))) {
+    if (Character.isWhitespace(sep)) {
       throw new ParseException("Invalid separator");
     }
     this.sep = sep;

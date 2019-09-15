@@ -27,8 +27,8 @@ import junit.framework.TestCase;
 public class TestParameterType extends TestCase {
 
   public void testString() {
-    String[] succ = new String[] {"", "str"};
-    String[] fail = new String[] {null};
+    String[] succ = {"", "str"};
+    String[] fail = {null};
     for (String t : succ) {
       assertTrue(t, ParameterType.String.getType().check(t));
     }
@@ -38,8 +38,8 @@ public class TestParameterType extends TestCase {
   }
 
   public void testInteger() {
-    String[] succ = new String[] {"0", "00", "007", "-0", "+6", "42"};
-    String[] fail = new String[] {null, "", "abc", "0xaa", "0.", "1e4", "--0", "--1"};
+    String[] succ = {"0", "00", "007", "-0", "+6", "42"};
+    String[] fail = {null, "", "abc", "0xaa", "0.", "1e4", "--0", "--1"};
     for (String t : succ) {
       assertTrue(t, ParameterType.Integer.getType().check(t));
     }
@@ -49,8 +49,8 @@ public class TestParameterType extends TestCase {
   }
 
   public void testPosInteger() {
-    String[] succ = new String[] {"007", "1", "+6", "42"};
-    String[] fail = new String[] {null, "", "0", "00", "-6", "-1", "abc", "0xaa", "0.", "--0", "--1", "1e4"};
+    String[] succ = {"007", "1", "+6", "42"};
+    String[] fail = {null, "", "0", "00", "-6", "-1", "abc", "0xaa", "0.", "--0", "--1", "1e4"};
     for (String t : succ) {
       assertTrue(t, ParameterType.PosInteger.getType().check(t));
     }
@@ -60,8 +60,8 @@ public class TestParameterType extends TestCase {
   }
 
   public void testNonNegInteger() {
-    String[] succ = new String[] {"007", "0", "00", "1", "6", "+6", "42"};
-    String[] fail = new String[] {null, "", "-6", "-1", "abc", "0xaa", "0.", "--0", "--1", "1e4"};
+    String[] succ = {"007", "0", "00", "1", "6", "+6", "42"};
+    String[] fail = {null, "", "-6", "-1", "abc", "0xaa", "0.", "--0", "--1", "1e4"};
     for (String t : succ) {
       assertTrue(t, ParameterType.NonNegInteger.getType().check(t));
     }
@@ -71,8 +71,8 @@ public class TestParameterType extends TestCase {
   }
 
   public void testIntegerRange() {
-    String[] succ = new String[] {"007", "0", "00", "1", "6", "+6", "42"};
-    String[] fail = new String[] {null, "", "-6", "-1", "abc", "0xaa", "0.", "--0", "--1", "1e4"};
+    String[] succ = {"007", "0", "00", "1", "6", "+6", "42"};
+    String[] fail = {null, "", "-6", "-1", "abc", "0xaa", "0.", "--0", "--1", "1e4"};
     for (String t : succ) {
       assertTrue(t, ParameterType.IntegerRange(0, Integer.MAX_VALUE).getType().check(t));
     }
@@ -90,10 +90,10 @@ public class TestParameterType extends TestCase {
   }
 
   public void testFloat() {
-    String[] succ = new String[] {
+    String[] succ = {
         "0", "00", "007", "-0", "+6", "42", "0.", ".0", "0.0", "-.0", "1e4", "3.14", "-3.14", "NaN", "-NaN", "+NaN",
         "0f", "0d", "Infinity", "-Infinity", "+Infinity"};
-    String[] fail = new String[] {
+    String[] fail = {
         null, "", "abc", "0xaa", "--0", "--1", ".", "-Inf", "Inf", "+Inf", "NAN", "-INF", "INF", "+INF", "INFINITY",
         "-INFINITY", "+INFINITY"};
     for (String t : succ) {
@@ -105,8 +105,8 @@ public class TestParameterType extends TestCase {
   }
 
   public void testPosFloat() {
-    String[] succ = new String[] {"007", "+6", "42", "1e4", "3.14", "Infinity", "+Infinity"};
-    String[] fail = new String[] {
+    String[] succ = {"007", "+6", "42", "1e4", "3.14", "Infinity", "+Infinity"};
+    String[] fail = {
         null, "", "abc", "0xaa", "--0", "--1", ".", "-3.14", "-1", "0", "00", "-0", "0.", ".0", "0.0", "-.0",
         "NaN", "-NaN", "+NaN", "-Inf", "Inf", "+Inf", "NAN", "-INF", "INF", "+INF", "0f", "0d", "-Infinity"};
     for (String t : succ) {
@@ -118,9 +118,9 @@ public class TestParameterType extends TestCase {
   }
 
   public void testNonNegFloat() {
-    String[] succ = new String[] {
+    String[] succ = {
         "0", "00", "007", "-0", "+6", "42", "0.", ".0", "0.0", "-.0", "1e4", "3.14", "Infinity", "+Infinity", "0f", "0d"};
-    String[] fail = new String[] {
+    String[] fail = {
         null, "", "abc", "0xaa", "--0", "--1", ".", "-3.14", "-1", "NaN", "-NaN", "+NaN", "-Inf", "Inf", "+Inf",
         "NAN", "-INF", "INF", "+INF", "-Infinity"};
     for (String t : succ) {
@@ -132,8 +132,8 @@ public class TestParameterType extends TestCase {
   }
 
   public void testFloatRange() {
-    String[] succ = new String[] {"0", "00", "-0", "0.", ".0", "0.0", "-.0", "1e-4", "-1", "0f", "0d"};
-    String[] fail = new String[] {
+    String[] succ = {"0", "00", "-0", "0.", ".0", "0.0", "-.0", "1e-4", "-1", "0f", "0d"};
+    String[] fail = {
         null, "", "abc", "0xaa", "--0", "--1", ".", "-3.14", "NaN", "-NaN", "+NaN", "-Inf", "Inf", "+Inf", "NAN",
         "-INF", "INF", "+INF", "007", "+6", "42", "1e4", "3.14", "Infinity", "+Infinity",};
     for (String t : succ) {
@@ -145,10 +145,10 @@ public class TestParameterType extends TestCase {
   }
 
   public void testDouble() {
-    String[] succ = new String[] {
+    String[] succ = {
         "0", "00", "007", "-0", "+6", "42", "0.", ".0", "0.0", "-.0", "1e4", "3.14", "-3.14", "NaN", "-NaN", "+NaN",
         "0f", "0d", "Infinity", "-Infinity", "+Infinity"};
-    String[] fail = new String[] {
+    String[] fail = {
         null, "", "abc", "0xaa", "--0", "--1", ".", "-Inf", "Inf", "+Inf", "NAN", "-INF", "INF", "+INF", "INFINITY",
         "-INFINITY", "+INFINITY"};
     for (String t : succ) {
@@ -160,8 +160,8 @@ public class TestParameterType extends TestCase {
   }
 
   public void testPosDouble() {
-    String[] succ = new String[] {"007", "+6", "42", "1e4", "3.14", "Infinity", "+Infinity"};
-    String[] fail = new String[] {
+    String[] succ = {"007", "+6", "42", "1e4", "3.14", "Infinity", "+Infinity"};
+    String[] fail = {
         null, "", "abc", "0xaa", "--0", "--1", ".", "-3.14", "-1", "0", "00", "-0", "0.", ".0", "0.0", "-.0",
         "NaN", "-NaN", "+NaN", "-Inf", "Inf", "+Inf", "NAN", "-INF", "INF", "+INF", "0f", "0d", "-Infinity"};
     for (String t : succ) {
@@ -173,9 +173,9 @@ public class TestParameterType extends TestCase {
   }
 
   public void testNonNegDouble() {
-    String[] succ = new String[] {
+    String[] succ = {
         "0", "00", "007", "-0", "+6", "42", "0.", ".0", "0.0", "-.0", "1e4", "3.14", "Infinity", "+Infinity", "0f", "0d"};
-    String[] fail = new String[] {
+    String[] fail = {
         null, "", "abc", "0xaa", "--0", "--1", ".", "-3.14", "-1", "NaN", "-NaN", "+NaN", "-Inf", "Inf", "+Inf",
         "NAN", "-INF", "INF", "+INF", "-Infinity"};
     for (String t : succ) {
@@ -187,8 +187,8 @@ public class TestParameterType extends TestCase {
   }
 
   public void testDoubleRange() {
-    String[] succ = new String[] {"0", "00", "-0", "0.", ".0", "0.0", "-.0", "1e-4", "-1", "0f", "0d"};
-    String[] fail = new String[] {
+    String[] succ = {"0", "00", "-0", "0.", ".0", "0.0", "-.0", "1e-4", "-1", "0f", "0d"};
+    String[] fail = {
         null, "", "abc", "0xaa", "--0", "--1", ".", "-3.14", "NaN", "-NaN", "+NaN", "-Inf", "Inf", "+Inf", "NAN",
         "-INF", "INF", "+INF", "007", "+6", "42", "1e4", "3.14", "Infinity", "+Infinity",};
     for (String t : succ) {
