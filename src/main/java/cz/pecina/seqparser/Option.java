@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * The source code is available from <https://github.com/tompecina/pdf>.
+ * The source code is available from <https://github.com/tompecina/seqparser>.
  */
 
 package cz.pecina.seqparser;
@@ -43,17 +43,17 @@ public class Option {
   // for description see Object
   @Override
   public String toString() {
-    return "Option";
+    return "Option \"" + getName() + "\"";
   }
 
   /** Regex for testing a short option. */
-  public static final Pattern RE_SHORT = Pattern.compile("^[\\p{Alpha}_][\\p{Alnum}_]*$");
+  protected static final Pattern RE_SHORT = Pattern.compile("^[\\p{Alpha}_][\\p{Alnum}_]*$");
 
   /** Regex for testing a long option. */
-  public static final Pattern RE_LONG = Pattern.compile("^[\\p{Alpha}_][\\p{Alnum}_]*(-[\\p{Alnum}_]+)*$");
+  protected static final Pattern RE_LONG = Pattern.compile("^[\\p{Alpha}_][\\p{Alnum}_]*(-[\\p{Alnum}_]+)*$");
 
   /** Regex for testing a sub-option. */
-  public static final Pattern RE_SUB = RE_LONG;
+  protected static final Pattern RE_SUB = RE_LONG;
 
   /** Short option string. */
   protected String shortOpt;

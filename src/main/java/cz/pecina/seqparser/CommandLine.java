@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * The source code is available from <https://github.com/tompecina/pdf>.
+ * The source code is available from <https://github.com/tompecina/seqparser>.
  */
 
 package cz.pecina.seqparser;
@@ -63,7 +63,7 @@ public class CommandLine {
    *
    * @param parameter the parameter
    */
-  public void addParameter(final Parameter parameter) {
+  protected void addParameter(final Parameter parameter) {
     parameters.add(parameter);
   }
 
@@ -81,7 +81,7 @@ public class CommandLine {
    *
    * @param arg argument to be added
    */
-  public void addRemArg(final String arg) {
+  protected void addRemArg(final String arg) {
     remArgs.add(arg);
   }
 

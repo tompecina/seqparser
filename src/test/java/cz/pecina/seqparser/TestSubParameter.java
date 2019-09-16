@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * The source code is available from <https://github.com/tompecina/pdf>.
+ * The source code is available from <https://github.com/tompecina/seqparser>.
  */
 
 package cz.pecina.seqparser;
@@ -28,7 +28,7 @@ public class TestSubParameter extends TestCase {
 
   public void testToString() {
     try {
-      assertEquals("SubParameter", new SubParameter("", ParameterType.String).toString());
+      assertEquals("SubParameter \"a\"", new SubParameter("a", ParameterType.String).toString());
     } catch (ParseException e) {
       fail();
     }

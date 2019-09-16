@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * The source code is available from <https://github.com/tompecina/pdf>.
+ * The source code is available from <https://github.com/tompecina/seqparser>.
  */
 
 package cz.pecina.seqparser;
@@ -42,7 +42,7 @@ public class Parameter {
   // for description see Object
   @Override
   public String toString() {
-    return "Parameter";
+    return "Parameter \"" + getOption().getName() + "\"";
   }
 
   /** The option describing the parameter. */
@@ -96,7 +96,7 @@ public class Parameter {
    *
    * @param subParameter the sub-parameter
    */
-  public void addSubParameter(final SubParameter subParameter) {
+  protected void addSubParameter(final SubParameter subParameter) {
     subParameters.add(subParameter);
   }
 
@@ -144,7 +144,7 @@ public class Parameter {
    * @param key the keyword
    * @param subParameter the keyword sub-parameter
    */
-  public void addKwSubParameter(final String key, final SubParameter subParameter) {
+  protected void addKwSubParameter(final String key, final SubParameter subParameter) {
     kwSubParameters.put(key, subParameter);
   }
 
@@ -153,7 +153,7 @@ public class Parameter {
    *
    * @param option the option describing the parameter
    */
-  public Parameter(final Option option) {
+  protected Parameter(final Option option) {
     this.option = option;
   }
 }

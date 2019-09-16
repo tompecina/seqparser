@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * The source code is available from <https://github.com/tompecina/pdf>.
+ * The source code is available from <https://github.com/tompecina/seqparser>.
  */
 
 package cz.pecina.seqparser;
@@ -43,6 +43,7 @@ public interface ParameterType {
    */
   @SuppressWarnings("checkstyle:ConstantName")
   SubOption String = new SubOption(new ParameterType() {
+      @Override
       public boolean check(final java.lang.String str) {
         return str != null;
       }
@@ -53,6 +54,7 @@ public interface ParameterType {
    */
   @SuppressWarnings("checkstyle:ConstantName")
   SubOption Integer = new SubOption(new ParameterType() {
+      @Override
       public boolean check(final java.lang.String str) {
         try {
           java.lang.Integer.valueOf(str);
@@ -68,6 +70,7 @@ public interface ParameterType {
    */
   @SuppressWarnings("checkstyle:ConstantName")
   SubOption PosInteger = new SubOption(new ParameterType() {
+      @Override
       public boolean check(final java.lang.String str) {
         try {
           final int res = java.lang.Integer.valueOf(str);
@@ -83,6 +86,7 @@ public interface ParameterType {
    */
   @SuppressWarnings("checkstyle:ConstantName")
   SubOption NonNegInteger = new SubOption(new ParameterType() {
+      @Override
       public boolean check(final java.lang.String str) {
         try {
           final int res = java.lang.Integer.valueOf(str);
@@ -103,15 +107,16 @@ public interface ParameterType {
   @SuppressWarnings("checkstyle:MethodName")
   static SubOption IntegerRange(final int min, final int max) {
     return new SubOption(new ParameterType() {
-      public boolean check(final java.lang.String str) {
-        try {
-          final int res = java.lang.Integer.valueOf(str);
-          return (res >= min) && (res <= max);
-        } catch (final Exception exception) {
-          return false;
+        @Override
+        public boolean check(final java.lang.String str) {
+          try {
+            final int res = java.lang.Integer.valueOf(str);
+            return (res >= min) && (res <= max);
+          } catch (final Exception exception) {
+            return false;
+          }
         }
-      }
-    });
+      });
   }
 
   /**
@@ -119,6 +124,7 @@ public interface ParameterType {
    */
   @SuppressWarnings("checkstyle:ConstantName")
   SubOption Float = new SubOption(new ParameterType() {
+      @Override
       public boolean check(final java.lang.String str) {
         try {
           java.lang.Float.valueOf(str);
@@ -134,6 +140,7 @@ public interface ParameterType {
    */
   @SuppressWarnings("checkstyle:ConstantName")
   SubOption PosFloat = new SubOption(new ParameterType() {
+      @Override
       public boolean check(final java.lang.String str) {
         try {
           final float res = java.lang.Float.valueOf(str);
@@ -149,6 +156,7 @@ public interface ParameterType {
    */
   @SuppressWarnings("checkstyle:ConstantName")
   SubOption NonNegFloat = new SubOption(new ParameterType() {
+      @Override
       public boolean check(final java.lang.String str) {
         try {
           final float res = java.lang.Float.valueOf(str);
@@ -170,15 +178,16 @@ public interface ParameterType {
   @SuppressWarnings("checkstyle:MethodName")
   static SubOption FloatRange(final float min, final float max) {
     return new SubOption(new ParameterType() {
-      public boolean check(final java.lang.String str) {
-        try {
-          final float res = java.lang.Float.valueOf(str);
-          return (res >= min) && (res <= max);
-        } catch (final Exception exception) {
-          return false;
+        @Override
+        public boolean check(final java.lang.String str) {
+          try {
+            final float res = java.lang.Float.valueOf(str);
+            return (res >= min) && (res <= max);
+          } catch (final Exception exception) {
+            return false;
+          }
         }
-      }
-    });
+      });
   }
 
   /**
@@ -186,6 +195,7 @@ public interface ParameterType {
    */
   @SuppressWarnings("checkstyle:ConstantName")
   SubOption Double = new SubOption(new ParameterType() {
+      @Override
       public boolean check(final java.lang.String str) {
         try {
           java.lang.Double.valueOf(str);
@@ -201,6 +211,7 @@ public interface ParameterType {
    */
   @SuppressWarnings("checkstyle:ConstantName")
   SubOption PosDouble = new SubOption(new ParameterType() {
+      @Override
       public boolean check(final java.lang.String str) {
         try {
           final double res = java.lang.Double.valueOf(str);
@@ -216,6 +227,7 @@ public interface ParameterType {
    */
   @SuppressWarnings("checkstyle:ConstantName")
   SubOption NonNegDouble = new SubOption(new ParameterType() {
+      @Override
       public boolean check(final java.lang.String str) {
         try {
           final double res = java.lang.Double.valueOf(str);
@@ -237,14 +249,15 @@ public interface ParameterType {
   @SuppressWarnings("checkstyle:MethodName")
   static SubOption DoubleRange(final double min, final double max) {
     return new SubOption(new ParameterType() {
-      public boolean check(final java.lang.String str) {
-        try {
-          final double res = java.lang.Double.valueOf(str);
-          return (res >= min) && (res <= max);
-        } catch (final Exception exception) {
-          return false;
+        @Override
+        public boolean check(final java.lang.String str) {
+          try {
+            final double res = java.lang.Double.valueOf(str);
+            return (res >= min) && (res <= max);
+          } catch (final Exception exception) {
+            return false;
+          }
         }
-      }
-    });
+      });
   }
 }

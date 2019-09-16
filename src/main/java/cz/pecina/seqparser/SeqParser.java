@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * The source code is available from <https://github.com/tompecina/pdf>.
+ * The source code is available from <https://github.com/tompecina/seqparser>.
  */
 
 package cz.pecina.seqparser;
@@ -52,16 +52,16 @@ public class SeqParser {
   private static final String SPEC_STR = "\u007f";
 
   /** Regex for checking option. */
-  public static final Pattern RE_OPT = Pattern.compile("^-[-]?[\\p{Alpha}_].*$");
+  protected static final Pattern RE_OPT = Pattern.compile("^-[-]?[\\p{Alpha}_].*$");
 
   /** Regex for parsing sub-parameters. */
-  public static final Pattern RE_KW =
+  protected static final Pattern RE_KW =
       Pattern.compile("^(?:([\\p{Alpha}_][\\p{Alnum}_]*(?:-[\\p{Alnum}_]+)*)=)?(['\"]?)(.*)\\2$");
 
   /**
    * Parser for the string of sub-parameters.
    */
-  static class Splitter implements Iterator<String>, Iterable<String> {
+  protected static class Splitter implements Iterator<String>, Iterable<String> {
 
     // constants
     private static final char ESCAPE = '\\';
@@ -138,7 +138,7 @@ public class SeqParser {
      * @param inp the input string
      * @param sep the separator character
      */
-    Splitter(final String inp, final char sep) {
+    protected Splitter(final String inp, final char sep) {
       this.inp = inp;
       this.sep = sep;
     }

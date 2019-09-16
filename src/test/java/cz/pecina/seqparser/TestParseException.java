@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * The source code is available from <https://github.com/tompecina/pdf>.
+ * The source code is available from <https://github.com/tompecina/seqparser>.
  */
 
 package cz.pecina.seqparser;
@@ -27,6 +27,6 @@ import junit.framework.TestCase;
 public class TestParseException extends TestCase {
 
   public void testToString() {
-    assertEquals("cz.pecina.seqparser.ParseException: m", new ParseException("m").toString());
+    assertEquals(ParseException.class.getName() + ": m", new ParseException("m").toString());
   }
 }
