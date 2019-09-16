@@ -1,6 +1,6 @@
 ^/\* .*?\.java$
 ^ \*$
-^ \* Copyright \(C\) [\d]{4}(-[\d]{4})?, Tomas Pecina <tomas@pecina.cz>$
+^ \* Copyright \(C\) [\d]{4}(-[\d]{2})?, Tomas Pecina <tomas@pecina.cz>$
 ^ \*$
 ^ \* This file is part of cz\.pecina\.seqparser, a sequential command-line parser\.$
 ^ \*$
