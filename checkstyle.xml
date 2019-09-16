@@ -55,9 +55,8 @@
 
     <module name="SuppressWarningsFilter" />
 
-    <module name="Header">
-      <property name="header" value="\n *\n * Copyright (C) 2019, Tomas Pecina &lt;tomas@pecina.cz&gt;\n *\n * This file is part of cz.pecina.seqparser, a sequential command-line parser.\n *\n * This application is free software: you can redistribute it and/or\n * modify it under the terms of the GNU Affero General Public License as\n * published by the Free Software Foundation, either version 3 of the\n * License, or (at your option) any later version.\n *\n * This application is distributed in the hope that it will be useful,\n * but WITHOUT ANY WARRANTY; without even the implied warranty of\n * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n * GNU Affero General Public License for more details.\n *\n * You should have received a copy of the GNU Affero General Public License\n * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.\n *\n * The source code is available from &lt;https://github.com/tompecina/seqparser&gt;.\n */\n"/>
-      <property name="ignoreLines" value="1"/>
+    <module name="RegexpHeader">
+      <property name="headerFile" value="src/checkstyle/resources/header.txt"/>
     </module>
 
     <module name="TreeWalker">
