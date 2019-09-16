@@ -3,7 +3,7 @@
 
   [
     {
-      "id": "Test 1",
+      "id": "Test Case #1",
       "request": {
         "options": {
           "sep": null,
@@ -20,7 +20,7 @@
     },
 
     {
-      "id": "Test 2",
+      "id": "Test Case #2",
       "request": {
         "options": {
           "sep": ":",
@@ -37,7 +37,7 @@
     },
 
     {
-      "id": "Test 3",
+      "id": "Test Case #3",
       "request": {
         "options": {
           "sep": ":",
@@ -52,7 +52,7 @@
     },
 
     {
-      "id": "Test 4",
+      "id": "Test Case #4",
       "request": {
         "options": {
           "sep": ":",
@@ -69,7 +69,7 @@
     },
 
     {
-      "id": "Test 5",
+      "id": "Test Case #5",
       "request": {
         "options": {
           "sep": null,
@@ -86,7 +86,7 @@
     },
 
     {
-      "id": "Test 6",
+      "id": "Test Case #6",
       "request": {
         "options": {
           "sep": null,
@@ -103,7 +103,7 @@
     },
 
     {
-      "id": "Test 7",
+      "id": "Test Case #7",
       "request": {
         "options": {
           "sep": null,
@@ -135,7 +135,7 @@
     },
 
     {
-      "id": "Test 8",
+      "id": "Test Case #8",
       "request": {
         "options": {
           "sep": null,
@@ -161,7 +161,7 @@
     },
 
     {
-      "id": "Test 9",
+      "id": "Test Case #9",
       "request": {
         "options": {
           "sep": null,
@@ -185,7 +185,7 @@
     },
 
     {
-      "id": "Test 10",
+      "id": "Test Case #10",
       "request": {
         "options": {
           "sep": null,
@@ -209,7 +209,7 @@
     },
 
     {
-      "id": "Test 11",
+      "id": "Test Case #11",
       "request": {
         "options": {
           "sep": null,
@@ -233,7 +233,7 @@
     },
 
     {
-      "id": "Test 12",
+      "id": "Test Case #12",
       "request": {
         "options": {
           "sep": null,
@@ -265,7 +265,7 @@
     },
 
     {
-      "id": "Test 13",
+      "id": "Test Case #13",
       "request": {
         "options": {
           "sep": null,
@@ -297,7 +297,7 @@
     },
 
     {
-      "id": "Test 14",
+      "id": "Test Case #14",
       "request": {
         "options": {
           "sep": null,
@@ -323,7 +323,7 @@
     },
 
     {
-      "id": "Test 15",
+      "id": "Test Case #15",
       "request": {
         "options": {
           "sep": null,
@@ -349,7 +349,7 @@
     },
 
     {
-      "id": "Test 16",
+      "id": "Test Case #16",
       "request": {
         "options": {
           "sep": null,
@@ -375,7 +375,7 @@
     },
 
     {
-      "id": "Test 17",
+      "id": "Test Case #17",
       "request": {
         "options": {
           "sep": null,
@@ -399,7 +399,7 @@
     },
 
     {
-      "id": "Test 18",
+      "id": "Test Case #18",
       "request": {
         "options": {
           "sep": null,
@@ -425,7 +425,7 @@
     },
 
     {
-      "id": "Test 19",
+      "id": "Test Case #19",
       "request": {
         "options": {
           "sep": null,
@@ -457,7 +457,7 @@
     },
 
     {
-      "id": "Test 20",
+      "id": "Test Case #20",
       "request": {
         "options": {
           "sep": null,
@@ -489,7 +489,7 @@
     },
 
     {
-      "id": "Test 21",
+      "id": "Test Case #21",
       "request": {
         "options": {
           "sep": null,
@@ -521,7 +521,7 @@
     },
 
     {
-      "id": "Test 22",
+      "id": "Test Case #22",
       "request": {
         "options": {
           "sep": null,
@@ -546,6 +546,1814 @@
             "optionName": "b",
             "subParameters": [],
             "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #23",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": "b",
+              "minParameters": 0,
+              "maxParameters": 0,
+              "subOptions": [],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "b"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": true
+      }
+    },
+
+    {
+      "id": "Test Case #24",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": "b",
+              "minParameters": 1,
+              "maxParameters": 1,
+              "subOptions": ["Integer"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": true
+      }
+    },
+
+    {
+      "id": "Test Case #25",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": "b",
+              "minParameters": 1,
+              "maxParameters": 1,
+              "subOptions": ["Integer"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "b"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": true
+      }
+    },
+
+    {
+      "id": "Test Case #26",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": "b",
+              "minParameters": 2,
+              "maxParameters": 5,
+              "subOptions": ["Integer"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "-9"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": true
+      }
+    },
+
+    {
+      "id": "Test Case #27",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": "b",
+              "minParameters": 1,
+              "maxParameters": 1,
+              "subOptions": ["Integer"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "-9,-7"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": true
+      }
+    },
+
+    {
+      "id": "Test Case #28",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": "b",
+              "minParameters": 0,
+              "maxParameters": 4,
+              "subOptions": ["String", "String", "Integer"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "b,c,-7,d"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": true
+      }
+    },
+
+    {
+      "id": "Test Case #29",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": "b",
+              "minParameters": 0,
+              "maxParameters": 4,
+              "subOptions": ["String", "String", "Integer"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "b,c,-7,1"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "b",
+            "subParameters": [
+              {"value": "b", "subOption": "String"},
+              {"value": "c", "subOption": "String"},
+              {"value": "-7", "subOption": "Integer"},
+              {"value": "1", "subOption": "Integer"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #30",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": "b",
+              "minParameters": 0,
+              "maxParameters": 4,
+              "subOptions": ["String", "String", "Integer"],
+              "kwSubOptions": {}
+            },
+            {
+              "shortOpt": "c",
+              "longOpt": "d",
+              "minParameters": 0,
+              "maxParameters": 0,
+              "subOptions": [],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-c", "-a", "b,c,-7,1"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "d",
+            "subParameters": [],
+            "kwSubParameters": {}
+          },
+          {
+            "optionName": "b",
+            "subParameters": [
+              {"value": "b", "subOption": "String"},
+              {"value": "c", "subOption": "String"},
+              {"value": "-7", "subOption": "Integer"},
+              {"value": "1", "subOption": "Integer"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #31",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": "b",
+              "minParameters": 0,
+              "maxParameters": 4,
+              "subOptions": ["String", "String", "Integer"],
+              "kwSubOptions": {}
+            },
+            {
+              "shortOpt": "c",
+              "longOpt": "d",
+              "minParameters": 0,
+              "maxParameters": 0,
+              "subOptions": [],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-c", "-a", "b,c,-7,1", "--d"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "d",
+            "subParameters": [],
+            "kwSubParameters": {}
+          },
+          {
+            "optionName": "b",
+            "subParameters": [
+              {"value": "b", "subOption": "String"},
+              {"value": "c", "subOption": "String"},
+              {"value": "-7", "subOption": "Integer"},
+              {"value": "1", "subOption": "Integer"}
+            ],
+            "kwSubParameters": {}
+          },
+          {
+            "optionName": "d",
+            "subParameters": [],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #32",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": "b",
+              "minParameters": 0,
+              "maxParameters": 4,
+              "subOptions": ["String", "String", "Integer"],
+              "kwSubOptions": {}
+            },
+            {
+              "shortOpt": "c",
+              "longOpt": "d",
+              "minParameters": 0,
+              "maxParameters": 0,
+              "subOptions": [],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-c", "-a", "b,c,-7,1", "--d", "-a", "--", "x.txt"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "d",
+            "subParameters": [],
+            "kwSubParameters": {}
+          },
+          {
+            "optionName": "b",
+            "subParameters": [
+              {"value": "b", "subOption": "String"},
+              {"value": "c", "subOption": "String"},
+              {"value": "-7", "subOption": "Integer"},
+              {"value": "1", "subOption": "Integer"}
+            ],
+            "kwSubParameters": {}
+          },
+          {
+            "optionName": "d",
+            "subParameters": [],
+            "kwSubParameters": {}
+          },
+          {
+            "optionName": "b",
+            "subParameters": [],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": ["x.txt"]
+      }
+    },
+
+    {
+      "id": "Test Case #33",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": "b",
+              "minParameters": 0,
+              "maxParameters": 4,
+              "subOptions": ["String", "String", "Integer"],
+              "kwSubOptions": {}
+            },
+            {
+              "shortOpt": "c",
+              "longOpt": "d",
+              "minParameters": 0,
+              "maxParameters": 0,
+              "subOptions": [],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-c", "-a", "b,c,-7,1", "--d", "-a", "x.txt"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "d",
+            "subParameters": [],
+            "kwSubParameters": {}
+          },
+          {
+            "optionName": "b",
+            "subParameters": [
+              {"value": "b", "subOption": "String"},
+              {"value": "c", "subOption": "String"},
+              {"value": "-7", "subOption": "Integer"},
+              {"value": "1", "subOption": "Integer"}
+            ],
+            "kwSubParameters": {}
+          },
+          {
+            "optionName": "d",
+            "subParameters": [],
+            "kwSubParameters": {}
+          },
+          {
+            "optionName": "b",
+            "subParameters": [
+              {"value": "x.txt", "subOption": "String"},
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #34",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 1,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "\"\""],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #35",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 1,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "''"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #36",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 1,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "\""],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "\"", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #37",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 1,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "'"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "'", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #38",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 2,
+              "maxParameters": 2,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "\"\",\"\""],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "", "subOption": "String"},
+              {"value": "", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #39",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 2,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", ","],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "", "subOption": "String"},
+              {"value": "", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #40",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 2,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "\"x\""],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "x", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #41",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 2,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "\"x,y\""],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "x,y", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #42",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 2,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "x,"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "x", "subOption": "String"},
+              {"value": "", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #43",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 2,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", ",x"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "", "subOption": "String"},
+              {"value": "x", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #44",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 3,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "x,,y"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "x", "subOption": "String"},
+              {"value": "", "subOption": "String"},
+              {"value": "y", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #45",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 3,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "x,,"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "x", "subOption": "String"},
+              {"value": "", "subOption": "String"},
+              {"value": "", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #46",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 3,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", ",,x"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "", "subOption": "String"},
+              {"value": "", "subOption": "String"},
+              {"value": "x", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #47",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 3,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "\" \""],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": " ", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #48",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 3,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "' '"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": " ", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #49",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 3,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "\\\""],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "\"", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #50",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 3,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "\\\"a"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "\"a", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #51",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 3,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "\\\"a\\\""],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "\"a\"", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #52",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 3,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "\\'a\\'"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "'a'", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #53",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 3,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "\\\"a\""],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "\"a\"", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #54",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 3,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "'a\\'"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "a", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #55",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 3,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "\\"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #56",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 3,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "\\"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #57",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 3,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "\\\\"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "\\", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #58",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 3,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "a\\,b"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "a,b", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #59",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 3,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "\\,"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": ",", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #60",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 3,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "\\,,"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": ",", "subOption": "String"},
+              {"value": "", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #61",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 3,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", ",\\,"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "", "subOption": "String"},
+              {"value": ",", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #62",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 3,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", ",\\,,"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "", "subOption": "String"},
+              {"value": ",", "subOption": "String"},
+              {"value": "", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #63",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 4,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", ",,,"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "", "subOption": "String"},
+              {"value": "", "subOption": "String"},
+              {"value": "", "subOption": "String"},
+              {"value": "", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #64",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 4,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "=a"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "=a", "subOption": "String"}
+            ],
+            "kwSubParameters": {}
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #65",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 4,
+              "subOptions": ["String"],
+              "kwSubOptions": {}
+            }
+          ]
+        },
+        "args": ["-a", "k=v"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": true
+      }
+    },
+
+    {
+      "id": "Test Case #66",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 4,
+              "subOptions": ["String"],
+              "kwSubOptions": {"k": "Integer"}
+            }
+          ]
+        },
+        "args": ["-a", "k=v"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": true
+      }
+    },
+
+    {
+      "id": "Test Case #67",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 1,
+              "maxParameters": 4,
+              "subOptions": ["String"],
+              "kwSubOptions": {"k": "Integer"}
+            }
+          ]
+        },
+        "args": ["-a", "k=1,l=2"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": true
+      }
+    },
+
+    {
+      "id": "Test Case #68",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 0,
+              "maxParameters": 4,
+              "subOptions": ["String"],
+              "kwSubOptions": {"k": "Integer", "l": "Integer"}
+            }
+          ]
+        },
+        "args": ["-a", "k=1,l=2"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [],
+            "kwSubParameters": {
+              "k": {"value": "1", "subOption": "Integer"},
+              "l": {"value": "2", "subOption": "Integer"}
+            }
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #69",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 0,
+              "maxParameters": 4,
+              "subOptions": ["Integer"],
+              "kwSubOptions": {"k": "Integer", "l": "Integer"}
+            }
+          ]
+        },
+        "args": ["-a", "3,k=1,l=2"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "3", "subOption": "Integer"},
+            ],
+            "kwSubParameters": {
+              "k": {"value": "1", "subOption": "Integer"},
+              "l": {"value": "2", "subOption": "Integer"}
+            }
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #70",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 0,
+              "maxParameters": 4,
+              "subOptions": ["Integer"],
+              "kwSubOptions": {"k": "Integer", "l": "Integer"}
+            }
+          ]
+        },
+        "args": ["-a", "k=1,3,l=2"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "3", "subOption": "Integer"},
+            ],
+            "kwSubParameters": {
+              "k": {"value": "1", "subOption": "Integer"},
+              "l": {"value": "2", "subOption": "Integer"}
+            }
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #71",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 0,
+              "maxParameters": 4,
+              "subOptions": ["Integer"],
+              "kwSubOptions": {"k0_1": "Integer", "k0-2": "Integer"}
+            }
+          ]
+        },
+        "args": ["-a", "k0_1=1,3,k0-2=2"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "3", "subOption": "Integer"},
+            ],
+            "kwSubParameters": {
+              "k0_1": {"value": "1", "subOption": "Integer"},
+              "k0-2": {"value": "2", "subOption": "Integer"}
+            }
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #72",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 0,
+              "maxParameters": 4,
+              "subOptions": ["Integer"],
+              "kwSubOptions": {"k0_1": "Integer", "k0-2": "Integer"}
+            }
+          ]
+        },
+        "args": ["-a", "k0_1=1,k0-2=2,3"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "3", "subOption": "Integer"},
+            ],
+            "kwSubParameters": {
+              "k0_1": {"value": "1", "subOption": "Integer"},
+              "k0-2": {"value": "2", "subOption": "Integer"}
+            }
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #73",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 0,
+              "maxParameters": 4,
+              "subOptions": ["String"],
+              "kwSubOptions": {"k0_1": "Integer", "k0-2": "Integer"}
+            }
+          ]
+        },
+        "args": ["-a", "k0_1=1,k0-2=2,"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "", "subOption": "String"},
+            ],
+            "kwSubParameters": {
+              "k0_1": {"value": "1", "subOption": "Integer"},
+              "k0-2": {"value": "2", "subOption": "Integer"}
+            }
+          }
+        ],
+        "remArgs": []
+      }
+    },
+
+    {
+      "id": "Test Case #74",
+      "request": {
+        "options": {
+          "sep": null,
+          "options" : [
+            {
+              "shortOpt": "a",
+              "longOpt": null,
+              "minParameters": 0,
+              "maxParameters": 4,
+              "subOptions": ["String"],
+              "kwSubOptions": {"k0_1": "Integer", "k0-2": "Integer"}
+            }
+          ]
+        },
+        "args": ["-a", ",k0_1=1,k0-2=2"],
+        "stopOnNonOption": true
+      },
+      "result": {
+        "exception": false,
+        "parameters": [
+          {
+            "optionName": "a",
+            "subParameters": [
+              {"value": "", "subOption": "String"},
+            ],
+            "kwSubParameters": {
+              "k0_1": {"value": "1", "subOption": "Integer"},
+              "k0-2": {"value": "2", "subOption": "Integer"}
+            }
           }
         ],
         "remArgs": []

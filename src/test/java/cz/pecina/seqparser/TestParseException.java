@@ -1,4 +1,4 @@
-/* TestSubOption.java
+/* TestParseException.java
  *
  * Copyright (C) 2019, Tomas Pecina <tomas@pecina.cz>
  *
@@ -24,20 +24,9 @@ package cz.pecina.seqparser;
 
 import junit.framework.TestCase;
 
-public class TestSubOption extends TestCase {
+public class TestParseException extends TestCase {
 
   public void testToString() {
-    assertEquals("SubOption", ParameterType.String.toString());
-  }
-
-  public void testGetType() {
-    ParameterType par = new ParameterType() {
-        public boolean check(final String str) {
-          return true;
-        }
-      };
-    SubOption sub = new SubOption(par);
-    assertSame(par, sub.getType());
-    assertTrue(sub.getType().check(null));
+    assertEquals("cz.pecina.seqparser.ParseException: m", new ParseException("m").toString());
   }
 }

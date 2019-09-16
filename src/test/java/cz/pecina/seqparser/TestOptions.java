@@ -1,8 +1,8 @@
 /* TestOptions.java
  *
- * Copyright (C) 2015-19, Tomas Pecina <tomas@pecina.cz>
+ * Copyright (C) 2019, Tomas Pecina <tomas@pecina.cz>
  *
- * This file is part of cz.pecina.pdf, a suite of PDF processing applications.
+ * This file is part of cz.pecina.seqparser, a sequential command-line parser.
  *
  * This application is free software: you can redistribute it and/or
  * modify it under the terms of the GNU Affero General Public License as
@@ -25,6 +25,10 @@ package cz.pecina.seqparser;
 import junit.framework.TestCase;
 
 public class TestOptions extends TestCase {
+
+  public void testToString() {
+    assertEquals("Options", new Options().toString());
+  }
 
   public void testSep() {
     try {

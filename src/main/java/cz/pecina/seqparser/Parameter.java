@@ -1,8 +1,8 @@
 /* Parameter.java
  *
- * Copyright (C) 2015-19, Tomas Pecina <tomas@pecina.cz>
+ * Copyright (C) 2019, Tomas Pecina <tomas@pecina.cz>
  *
- * This file is part of cz.pecina.pdf, a suite of PDF processing applications.
+ * This file is part of cz.pecina.seqparser, a sequential command-line parser.
  *
  * This application is free software: you can redistribute it and/or
  * modify it under the terms of the GNU Affero General Public License as
@@ -152,7 +152,6 @@ public class Parameter {
    * Creates the parameter object.
    *
    * @param option the option describing the parameter
-   * @throws ParseException on parse error
    */
   public Parameter(final Option option) {
     this.option = option;

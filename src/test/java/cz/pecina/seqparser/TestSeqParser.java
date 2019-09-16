@@ -1,8 +1,8 @@
 /* TestSeqParser.java
  *
- * Copyright (C) 2015-19, Tomas Pecina <tomas@pecina.cz>
+ * Copyright (C) 2019, Tomas Pecina <tomas@pecina.cz>
  *
- * This file is part of cz.pecina.pdf, a suite of PDF processing applications.
+ * This file is part of cz.pecina.seqparser, a sequential command-line parser.
  *
  * This application is free software: you can redistribute it and/or
  * modify it under the terms of the GNU Affero General Public License as
@@ -25,9 +25,9 @@ package cz.pecina.seqparser;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import junit.framework.TestCase;
@@ -36,49 +36,112 @@ import org.json.JSONObject;
 
 public class TestSeqParser extends TestCase {
 
-  public void testResSplit() {
-    Pattern reSplit = Pattern.compile(String.format(SeqParser.RES_SPLIT, Pattern.quote(",")));
-    Map<String, String[]> pat = new HashMap<>() {
-        {
-          put("a", new String[] {"a"});
-          put("\"a\"", new String[] {"\"a\""});
-          put("a,b", new String[] {"a", "b"});
-          put("\"a\",b", new String[] {"\"a\"", "b"});
-          put("\"a,b\"", new String[] {"\"a,b\""});
-          put("\"a,b\",c", new String[] {"\"a,b\"", "c"});
-          put("a,\"b, c\"", new String[] {"a", "\"b, c\""});
-          put("\"a, b\",\"c, d\"", new String[] {"\"a, b\"", "\"c, d\""});
-          put("\"a", new String[] {"\"a"});
-          put("a\"", new String[] {"a\""});
-          put("'a'", new String[] {"'a'"});
-          put("'a',b", new String[] {"'a'", "b"});
-          put("'a,b'", new String[] {"'a,b'"});
-          put("'a,b',c", new String[] {"'a,b'", "c"});
-          put("a,'b, c'", new String[] {"a", "'b, c'"});
-          put("'a, b','c, d'", new String[] {"'a, b'", "'c, d'"});
-          put("'a", new String[] {"'a"});
-          put("a'", new String[] {"a'"});
-          put("\"a, b\",'c, d'", new String[] {"\"a, b\"", "'c, d'"});
-          put("\"a, b','c, d\"", new String[] {"\"a, b','c, d\""});
-          put("'a, b\",\"c, d'", new String[] {"'a, b\",\"c, d'"});
-          put("\"a, b\",'c, d'", new String[] {"\"a, b\"", "'c, d'"});
-          put("'a, b',\"c, d\"", new String[] {"'a, b'", "\"c, d\""});
-          put("\"a'", new String[] {"\"a'"});
-          put("'a\"", new String[] {"'a\""});
-        }
-      };
-    Matcher m = reSplit.matcher("");
-    assertTrue(m.find());
-    assertEquals(2, m.toMatchResult().groupCount());
-    assertEquals("", m.toMatchResult().group(1));
-    assertNull(m.toMatchResult().group(2));
-    for (String k : pat.keySet()) {
-      String[] v = pat.get(k);
+  public void testToString() {
+    assertEquals("SeqParser", new SeqParser().toString());
+  }
+
+  public void testSplitter() {
+
+    SeqParser.Splitter p = new SeqParser.Splitter(null, ',');
+    assertFalse(p.hasNext());
+    try {
+      p.next();
+      fail();
+    } catch (NoSuchElementException expected) { }
+
+    p = new SeqParser.Splitter("a", ',');
+    assertTrue(p.hasNext());
+    try {
+      assertEquals("a", p.next());
+    } catch (NoSuchElementException e) {
+      fail();
+    }
+    assertFalse(p.hasNext());
+    try {
+      p.next();
+      fail();
+    } catch (NoSuchElementException expected) { }
+
+    p = new SeqParser.Splitter("", ',');
+    assertTrue(p.hasNext());
+    try {
+      assertEquals("", p.next());
+    } catch (NoSuchElementException e) {
+      fail();
+    }
+    assertFalse(p.hasNext());
+    try {
+      p.next();
+      fail();
+    } catch (NoSuchElementException expected) { }
+
+    p = new SeqParser.Splitter(",", ',');
+    assertTrue(p.hasNext());
+    try {
+      assertEquals("", p.next());
+    } catch (NoSuchElementException e) {
+      fail();
+    }
+    try {
+      assertEquals("", p.next());
+    } catch (NoSuchElementException e) {
+      fail();
+    }
+    assertFalse(p.hasNext());
+    try {
+      p.next();
+      fail();
+    } catch (NoSuchElementException expected) { }
+
+    String[][] pat = {
+      {"a", "a"},
+      {"\"a\"", "\"a\""},
+      {"a,b", "a", "b"},
+      {"\"a\",b", "\"a\"", "b"},
+      {"\"a,b\"", "\"a,b\""},
+      {"\"a,b\",c", "\"a,b\"", "c"},
+      {"a,\"b, c\"", "a", "\"b, c\""},
+      {"\"a, b\",\"c, d\"", "\"a, b\"", "\"c, d\""},
+      {"\"a", "\"a"},
+      {"a\"", "a\""},
+      {"'a'", "'a'"},
+      {"'a',b", "'a'", "b"},
+      {"'a,b'", "'a,b'"},
+      {"'a,b',c", "'a,b'", "c"},
+      {"a,'b, c'", "a", "'b, c'"},
+      {"'a, b','c, d'", "'a, b'", "'c, d'"},
+      {"'a", "'a"},
+      {"a'", "a'"},
+      {"\"a, b\",'c, d'", "\"a, b\"", "'c, d'"},
+      {"\"a, b','c, d\"", "\"a, b','c, d\""},
+      {"'a, b\",\"c, d'", "'a, b\",\"c, d'"},
+      {"\"a, b\",'c, d'", "\"a, b\"", "'c, d'"},
+      {"'a, b',\"c, d\"", "'a, b'", "\"c, d\""},
+      {"\"a'", "\"a'"},
+      {"'a\"", "'a\""},
+      {"", ""},
+      {",", "", ""},
+      {",a", "", "a"},
+      {"a,", "a", ""},
+      {"\"a\"\"b\"", "\"a\"\"b\""},
+      {"'a''b'", "'a''b'"},
+      {"a\\\"b", "a\\\"b"},
+      {"\"a\\\"b\"", "\"a\\\"b\""},
+      {"a\\'b", "a\\'b"},
+      {"'a\\'b'", "'a\\'b'"},
+      {"'a\\\"b'", "'a\\\"b'"},
+      {"\"a\\\'b\"", "\"a\\'b\""},
+      {"\\\\a", "\\\\a"},
+      {"a\\,b", "a\\,b"},
+      {"\"a\\,b\"", "\"a\\,b\""},
+      {"a,,b", "a", "", "b"},
+      {"a\"b\"", "a\"b\""},
+      {"k=\"v\"", "k=\"v\""}
+    };
+    for (String[] s : pat) {
       int i = 0;
-      m = reSplit.matcher(k);
-      while (m.find()) {
-        assertEquals(String.format("%s (%d)", k, i), v[i], m.toMatchResult().group(1));
-        i++;
+      for (String t : new SeqParser.Splitter(s[0], ',')) {
+        assertEquals(s[0], s[++i], t);
       }
     }
   }

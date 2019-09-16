@@ -1,8 +1,8 @@
 /* SeqParser.java
  *
- * Copyright (C) 2015-19, Tomas Pecina <tomas@pecina.cz>
+ * Copyright (C) 2019, Tomas Pecina <tomas@pecina.cz>
  *
- * This file is part of cz.pecina.pdf, a suite of PDF processing applications.
+ * This file is part of cz.pecina.seqparser, a sequential command-line parser.
  *
  * This application is free software: you can redistribute it and/or
  * modify it under the terms of the GNU Affero General Public License as
@@ -22,8 +22,10 @@
 
 package cz.pecina.seqparser;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.logging.Logger;
 import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
@@ -46,15 +48,101 @@ public class SeqParser {
     return "SeqParser";
   }
 
+  // constants
+  private static final String SPEC_STR = "\u007f";
+
   /** Regex for checking option. */
   public static final Pattern RE_OPT = Pattern.compile("^-[-]?[\\p{Alpha}_].*$");
-
-  /** Regex string for splitting sub-parameters. */
-  public static final String RES_SPLIT = "(?:^|%s)((['\"]).*?\\2|[^%1$s]*)";
 
   /** Regex for parsing sub-parameters. */
   public static final Pattern RE_KW =
       Pattern.compile("^(?:([\\p{Alpha}_][\\p{Alnum}_]*(?:-[\\p{Alnum}_]+)*)=)?(['\"]?)(.*)\\2$");
+
+  /**
+   * Parser for the string of sub-parameters.
+   */
+  static class Splitter implements Iterator<String>, Iterable<String> {
+
+    // constants
+    private static final char ESCAPE = '\\';
+    private static final char SINGLE_QUOTE = '\'';
+    private static final char DOUBLE_QUOTE = '"';
+
+    // fields
+    private String inp;
+    private final StringBuilder out = new StringBuilder();
+    private char sep;
+    private int idx = 0;
+    private boolean singleQuote = false;
+    private boolean doubleQuote = false;
+    private boolean escape = false;
+    private boolean empty = false;
+
+    // for description see Iterable
+    @Override
+    public Iterator<String> iterator() {
+      return this;
+    }
+
+    // for description see Iterator
+    @Override
+    public boolean hasNext() {
+      return (inp != null) && ((idx < inp.length()) || !empty);
+    }
+
+    // for description see Iterator
+    @Override
+    public String next() throws NoSuchElementException {
+      if (!hasNext()) {
+        throw new NoSuchElementException();
+      }
+      if (idx == inp.length()) {
+        empty = true;
+        return "";
+      }
+      while (idx < inp.length()) {
+        empty = true;
+        final char ch = inp.charAt(idx++);
+        if (ch == ESCAPE) {
+          escape = true;
+        } else {
+          if (escape) {
+            escape = false;
+          } else if ((ch == sep) && !singleQuote && !doubleQuote) {
+            empty = false;
+            break;
+          } else if (ch == SINGLE_QUOTE) {
+            if (singleQuote) {
+              singleQuote = false;
+            } else if (!doubleQuote) {
+              singleQuote = true;
+            }
+          } else if (ch == DOUBLE_QUOTE) {
+            if (doubleQuote) {
+              doubleQuote = false;
+            } else if (!singleQuote) {
+              doubleQuote = true;
+            }
+          }
+        }
+        out.append(ch);
+      }
+      final String res = out.toString();
+      out.setLength(0);
+      return res;
+    }
+
+    /**
+     * Creates a new splitter object.
+     *
+     * @param inp the input string
+     * @param sep the separator character
+     */
+    Splitter(final String inp, final char sep) {
+      this.inp = inp;
+      this.sep = sep;
+    }
+  }
 
   /**
    * Parses a string of arguments.
@@ -67,14 +155,13 @@ public class SeqParser {
    */
   public CommandLine parse(final Options options, final String[] args, final boolean stopOnNonOption)
       throws ParseException {
-    final Pattern reSplit = Pattern.compile(String.format(RES_SPLIT, Pattern.quote(String.valueOf(options.getSep()))));
     final CommandLine cmd = new CommandLine();
     boolean stopParsing = false;
     Option option = null;
     Parameter parameter = null;
     List<SubOption> subOptions = null;
     int subSize = 0;
-    int subIndex = 0;
+    int subIdx = 0;
     Map<String, SubOption> kwSubOptions = null;
     for (String arg : args) {
       if (stopParsing) {
@@ -95,32 +182,34 @@ public class SeqParser {
           cmd.addParameter(parameter);
           subOptions = option.getSubOptions();
           subSize = subOptions.size();
-          subIndex = 0;
+          subIdx = 0;
           kwSubOptions = option.getKwSubOptions();
         }
-      } else if (parameter == null) {  // value
+      } else if (parameter == null) {  // misplaced value
         if (stopOnNonOption) {
           cmd.addRemArg(arg);
           stopParsing = true;
         } else {
           throw new ParseException("Invalid option: " + arg);
         }
-      } else {
-        final Matcher splitMatcher = reSplit.matcher(arg);
-        while (splitMatcher.find()) {
-          final String res = splitMatcher.toMatchResult().group(1);
+      } else {  // value
+        for (String res : new Splitter(arg, options.getSep())) {
           final Matcher kwMatcher = RE_KW.matcher(res);
           while (kwMatcher.find()) {
             final MatchResult kwRes = kwMatcher.toMatchResult();
             final String key = kwRes.group(1);
-            final String val = kwRes.group(3);
+            final String val = kwRes.group(3).replace("\\\\", SPEC_STR).replace("\\", "").replace(SPEC_STR, "\\");
             if (key == null) {
               if (subSize == 0) {
                 throw new ParseException("No positional parameters allowed for this option");
               } else {
-                parameter.addSubParameter(new SubParameter(val, subOptions.get(subIndex)));
-                if (++subIndex == subSize) {  // use the last sub-option for all the rest
-                  subIndex--;
+                final SubOption subOption = subOptions.get(subIdx);
+                if (!subOption.getType().check(val)) {
+                  throw new ParseException(String.format("Invalid positional parameter value: \"%s\"", val));
+                }
+                parameter.addSubParameter(new SubParameter(val, subOption));
+                if (++subIdx == subSize) {  // use the last sub-option for all the rest
+                  subIdx--;
                 }
               }
             } else {
@@ -128,16 +217,22 @@ public class SeqParser {
               if (kwSubOption == null) {
                 throw new ParseException("Keyword parameter \"" + key + "\" not allowed for this option");
               } else {
+                if (!kwSubOption.getType().check(val)) {
+                  throw new ParseException(String.format("Invalid keyword parameter value: \"%s\"", val));
+                }
                 parameter.addKwSubParameter(key, new SubParameter(val, kwSubOption));
               }
             }
           }
         }
-        final int subPars = parameter.getSubParameters().size();
-        if ((subPars < option.getMinParameters()) || (subPars > option.getMaxParameters())) {
-          throw new ParseException("Invalid number of positional parameters supplied");
-        }
         parameter = null;
+      }
+    }
+    for (Parameter par : cmd.getParameters()) {
+      final int subPars = par.getSubParameters().size();
+      final Option opt = par.getOption();
+      if ((subPars < opt.getMinParameters()) || (subPars > opt.getMaxParameters())) {
+        throw new ParseException("Invalid number of positional parameters supplied");
       }
     }
     return cmd;
