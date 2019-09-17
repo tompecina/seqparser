@@ -5,8 +5,8 @@
     {
       "id": "Test Case #1",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : []
         },
         "args": [],
@@ -22,8 +22,8 @@
     {
       "id": "Test Case #2",
       "request": {
+        "sep": ":",
         "options": {
-          "sep": ":",
           "options" : []
         },
         "args": [],
@@ -39,8 +39,8 @@
     {
       "id": "Test Case #3",
       "request": {
+        "sep": ":",
         "options": {
-          "sep": ":",
           "options" : []
         },
         "args": ["a"],
@@ -54,8 +54,8 @@
     {
       "id": "Test Case #4",
       "request": {
+        "sep": ":",
         "options": {
-          "sep": ":",
           "options" : []
         },
         "args": ["a"],
@@ -71,8 +71,8 @@
     {
       "id": "Test Case #5",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : []
         },
         "args": ["--"],
@@ -88,8 +88,8 @@
     {
       "id": "Test Case #6",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : []
         },
         "args": ["--", "--"],
@@ -105,8 +105,8 @@
     {
       "id": "Test Case #7",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -137,8 +137,8 @@
     {
       "id": "Test Case #8",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -163,8 +163,8 @@
     {
       "id": "Test Case #9",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -187,8 +187,8 @@
     {
       "id": "Test Case #10",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -211,8 +211,8 @@
     {
       "id": "Test Case #11",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": null,
@@ -235,8 +235,8 @@
     {
       "id": "Test Case #12",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": null,
@@ -267,8 +267,8 @@
     {
       "id": "Test Case #13",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": null,
@@ -299,8 +299,8 @@
     {
       "id": "Test Case #14",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -325,8 +325,8 @@
     {
       "id": "Test Case #15",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -351,8 +351,8 @@
     {
       "id": "Test Case #16",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -377,8 +377,8 @@
     {
       "id": "Test Case #17",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -401,8 +401,8 @@
     {
       "id": "Test Case #18",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -427,8 +427,8 @@
     {
       "id": "Test Case #19",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -459,8 +459,8 @@
     {
       "id": "Test Case #20",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -491,8 +491,8 @@
     {
       "id": "Test Case #21",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -523,8 +523,8 @@
     {
       "id": "Test Case #22",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -555,8 +555,8 @@
     {
       "id": "Test Case #23",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -579,8 +579,8 @@
     {
       "id": "Test Case #24",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -603,8 +603,8 @@
     {
       "id": "Test Case #25",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -627,8 +627,8 @@
     {
       "id": "Test Case #26",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -651,8 +651,8 @@
     {
       "id": "Test Case #27",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -675,8 +675,8 @@
     {
       "id": "Test Case #28",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -699,8 +699,8 @@
     {
       "id": "Test Case #29",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -736,8 +736,8 @@
     {
       "id": "Test Case #30",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -786,8 +786,8 @@
     {
       "id": "Test Case #31",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -841,8 +841,8 @@
     {
       "id": "Test Case #32",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -901,8 +901,8 @@
     {
       "id": "Test Case #33",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -963,8 +963,8 @@
     {
       "id": "Test Case #34",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -997,8 +997,8 @@
     {
       "id": "Test Case #35",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1031,8 +1031,8 @@
     {
       "id": "Test Case #36",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1065,8 +1065,8 @@
     {
       "id": "Test Case #37",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1099,8 +1099,8 @@
     {
       "id": "Test Case #38",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1134,8 +1134,8 @@
     {
       "id": "Test Case #39",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1169,8 +1169,8 @@
     {
       "id": "Test Case #40",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1203,8 +1203,8 @@
     {
       "id": "Test Case #41",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1237,8 +1237,8 @@
     {
       "id": "Test Case #42",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1272,8 +1272,8 @@
     {
       "id": "Test Case #43",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1307,8 +1307,8 @@
     {
       "id": "Test Case #44",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1343,8 +1343,8 @@
     {
       "id": "Test Case #45",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1379,8 +1379,8 @@
     {
       "id": "Test Case #46",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1415,8 +1415,8 @@
     {
       "id": "Test Case #47",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1449,8 +1449,8 @@
     {
       "id": "Test Case #48",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1483,8 +1483,8 @@
     {
       "id": "Test Case #49",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1517,8 +1517,8 @@
     {
       "id": "Test Case #50",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1551,8 +1551,8 @@
     {
       "id": "Test Case #51",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1585,8 +1585,8 @@
     {
       "id": "Test Case #52",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1619,8 +1619,8 @@
     {
       "id": "Test Case #53",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1653,8 +1653,8 @@
     {
       "id": "Test Case #54",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1687,8 +1687,8 @@
     {
       "id": "Test Case #55",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1721,8 +1721,8 @@
     {
       "id": "Test Case #56",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1755,8 +1755,8 @@
     {
       "id": "Test Case #57",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1789,8 +1789,8 @@
     {
       "id": "Test Case #58",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1823,8 +1823,8 @@
     {
       "id": "Test Case #59",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1857,8 +1857,8 @@
     {
       "id": "Test Case #60",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1892,8 +1892,8 @@
     {
       "id": "Test Case #61",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1927,8 +1927,8 @@
     {
       "id": "Test Case #62",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -1963,8 +1963,8 @@
     {
       "id": "Test Case #63",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -2000,8 +2000,8 @@
     {
       "id": "Test Case #64",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -2034,8 +2034,8 @@
     {
       "id": "Test Case #65",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -2058,8 +2058,8 @@
     {
       "id": "Test Case #66",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -2082,8 +2082,8 @@
     {
       "id": "Test Case #67",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -2106,8 +2106,8 @@
     {
       "id": "Test Case #68",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -2141,8 +2141,8 @@
     {
       "id": "Test Case #69",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -2178,8 +2178,8 @@
     {
       "id": "Test Case #70",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -2215,8 +2215,8 @@
     {
       "id": "Test Case #71",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -2252,8 +2252,8 @@
     {
       "id": "Test Case #72",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -2289,8 +2289,8 @@
     {
       "id": "Test Case #73",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",
@@ -2326,8 +2326,8 @@
     {
       "id": "Test Case #74",
       "request": {
+        "sep": null,
         "options": {
-          "sep": null,
           "options" : [
             {
               "shortOpt": "a",

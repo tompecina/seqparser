@@ -30,29 +30,6 @@ public class TestOptions extends TestCase {
     assertEquals("Options", new Options().toString());
   }
 
-  public void testSep() {
-    try {
-      assertEquals(';', new Options().setSep(';').getSep());
-    } catch (ParseException e) {
-      fail(e.getMessage());
-    }
-    char[] succ = {',', ':', 'a', 'á', 'ř', '-', ';', '!', ',', 'Ω'};
-    char[] fail = {' ', '\t', '\n', '\r', '\u000b', '\u000c'};
-    for (char t : succ) {
-      try {
-        new Options().setSep(t);
-      } catch (ParseException e) {
-        fail(String.format("char: \"%c\"", t));
-      }
-    }
-    for (char t : fail) {
-      try {
-        new Options().setSep(t);
-        fail(String.format("char: \"%c\"", t));
-      } catch (ParseException expected) { }
-    }
-  }
-
   public void testGetOption() {
     Options o = new Options();
     try {

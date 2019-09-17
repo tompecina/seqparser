@@ -45,9 +45,6 @@ public class Options {
     return "Options";
   }
 
-  /** The default separator character. */
-  protected static final char DEFAULT_SEP = ',';
-
   /** List of options. */
   protected final List<Option> options = new ArrayList<>();
 
@@ -56,9 +53,6 @@ public class Options {
 
   /** Map of options by long option string. */
   protected final Map<String, Option> longMap = new HashMap<>();
-
-  /** The separator character. */
-  protected char sep = DEFAULT_SEP;
 
   /**
    * Gets the option using the short option string.
@@ -85,7 +79,7 @@ public class Options {
    *
    * @param option the option
    * @return the options object, to facilitate chaining
-   * @throws ParseException if duplicate option is passed
+   * @throws ParseException if a duplicate option is passed
    */
   public Options addOption(final Option option) throws ParseException {
     final String shortOpt = option.getShortOpt();
@@ -100,30 +94,6 @@ public class Options {
     if (longOpt != null) {
       longMap.put(longOpt, option);
     }
-    return this;
-  }
-
-  /**
-   * Gets the separator string. It is used to divide sub-parameter values.
-   *
-   * @return the separator
-   */
-  public char getSep() {
-    return sep;
-  }
-
-  /**
-   * Sets the separator string. It is used to divide sub-parameter values.
-   *
-   * @param sep the separator
-   * @return the options object, to facilitate chaining
-   * @throws ParseException on invalid separator
-   */
-  public Options setSep(final char sep) throws ParseException {
-    if (Character.isWhitespace(sep)) {
-      throw new ParseException("Invalid separator");
-    }
-    this.sep = sep;
     return this;
   }
 

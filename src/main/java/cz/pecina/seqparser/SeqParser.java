@@ -51,12 +51,42 @@ public class SeqParser {
   // constants
   private static final String SPEC_STR = "\u007f";
 
+  /** The default separator character. */
+  protected static final char DEFAULT_SEP = ',';
+
   /** Regex for checking option. */
   protected static final Pattern RE_OPT = Pattern.compile("^-[-]?[\\p{Alpha}_].*$");
 
   /** Regex for parsing sub-parameters. */
   protected static final Pattern RE_KW =
       Pattern.compile("^(?:([\\p{Alpha}_][\\p{Alnum}_]*(?:-[\\p{Alnum}_]+)*)=)?(['\"]?)(.*)\\2$");
+
+  /** The separator character. */
+  protected char sep = DEFAULT_SEP;
+
+  /**
+   * Gets the separator string. It is used to divide sub-parameter values.
+   *
+   * @return the separator
+   */
+  public char getSep() {
+    return sep;
+  }
+
+  /**
+   * Sets the separator string. It is used to divide sub-parameter values.
+   *
+   * @param sep the separator
+   * @return the parser object, to facilitate chaining
+   * @throws ParseException on invalid separator
+   */
+  public SeqParser setSep(final char sep) throws ParseException {
+    if (Character.isWhitespace(sep)) {
+      throw new ParseException("Invalid separator");
+    }
+    this.sep = sep;
+    return this;
+  }
 
   /**
    * Parser for the string of sub-parameters.
@@ -193,7 +223,7 @@ public class SeqParser {
           throw new ParseException("Invalid option: " + arg);
         }
       } else {  // value
-        for (String res : new Splitter(arg, options.getSep())) {
+        for (String res : new Splitter(arg, getSep())) {
           final Matcher kwMatcher = RE_KW.matcher(res);
           while (kwMatcher.find()) {
             final MatchResult kwRes = kwMatcher.toMatchResult();
@@ -239,9 +269,19 @@ public class SeqParser {
   }
 
   /**
-   * Create a new parser object.
+   * Creates a new parser object, using the default separator (",").
    */
   public SeqParser() {
     // no action
+  }
+
+  /**
+   * Creates a new parser object.
+   *
+   * @param sep the separator
+   * @throws ParseException on invalid separator
+   */
+  public SeqParser(final char sep) throws ParseException {
+    setSep(sep);
   }
 }

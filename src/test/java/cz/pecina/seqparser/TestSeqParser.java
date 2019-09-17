@@ -40,6 +40,35 @@ public class TestSeqParser extends TestCase {
     assertEquals("SeqParser", new SeqParser().toString());
   }
 
+  public void testSep() {
+    try {
+      assertEquals(';', new SeqParser().setSep(';').getSep());
+      assertEquals(';', new SeqParser(';').getSep());
+    } catch (ParseException e) {
+      fail(e.getMessage());
+    }
+    char[] succ = {',', ':', 'a', 'á', 'ř', '-', ';', '!', ',', 'Ω'};
+    char[] fail = {' ', '\t', '\n', '\r', '\u000b', '\u000c'};
+    for (char t : succ) {
+      try {
+        new SeqParser().setSep(t);
+      } catch (ParseException e) {
+        fail(String.format("char: \"%c\"", t));
+      }
+      try {
+        new SeqParser(t);
+      } catch (ParseException e) {
+        fail(String.format("char: \"%c\"", t));
+      }
+    }
+    for (char t : fail) {
+      try {
+        new SeqParser().setSep(t);
+        fail(String.format("char: \"%c\"", t));
+      } catch (ParseException expected) { }
+    }
+  }
+
   public void testSplitter() {
 
     SeqParser.Splitter p = new SeqParser.Splitter(null, ',');
@@ -203,9 +232,6 @@ public class TestSeqParser extends TestCase {
         JSONObject request = tc.getJSONObject("request");
         JSONObject jOptions = request.getJSONObject("options");
         Options options = new Options();
-        if (!jOptions.isNull("sep")) {
-          options.setSep(jOptions.getString("sep").charAt(0));
-        }
         for (Object oOption : jOptions.getJSONArray("options")) {
           JSONObject jOption = (JSONObject) oOption;
           Option option = new Option(jOption.optString("shortOpt", null), jOption.optString("longOpt", null),
@@ -235,6 +261,9 @@ public class TestSeqParser extends TestCase {
         boolean exception = result.getBoolean("exception");
         CommandLine line = null;
         SeqParser parser = new SeqParser();
+        if (!request.isNull("sep")) {
+          parser.setSep(request.getString("sep").charAt(0));
+        }
         try {
           line = parser.parse(options, args, stopOnNonOption);
           if (exception) {
