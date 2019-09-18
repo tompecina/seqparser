@@ -83,7 +83,7 @@ public class TestOption extends TestCase {
       assertEquals(0, new Option("a", null).getMinParameters());
       assertEquals(0, new Option("a", null).getMaxParameters());
     } catch (ParseException e) {
-      fail(e.getMessage());
+      fail();
     }
   }
 
@@ -91,7 +91,7 @@ public class TestOption extends TestCase {
     try {
       assertEquals("a", new Option("a", null).getShortOpt());
     } catch (ParseException e) {
-      fail(e.getMessage());
+      fail();
     }
   }
 
@@ -99,7 +99,7 @@ public class TestOption extends TestCase {
     try {
       assertEquals("a", new Option(null, "a").getLongOpt());
     } catch (ParseException e) {
-      fail(e.getMessage());
+      fail();
     }
   }
 
@@ -109,7 +109,7 @@ public class TestOption extends TestCase {
       assertEquals("a", new Option(null, "a").getName());
       assertEquals("b", new Option("a", "b").getName());
     } catch (ParseException e) {
-      fail(e.getMessage());
+      fail();
     }
   }
 
@@ -124,7 +124,7 @@ public class TestOption extends TestCase {
       assertSame(ParameterType.String, o.getSubOption(0));
       assertSame(ParameterType.Integer, o.getSubOption(1));
     } catch (ParseException e) {
-      fail(e.getMessage());
+      fail();
     }
   }
 
@@ -141,7 +141,7 @@ public class TestOption extends TestCase {
       assertSame(ParameterType.Integer, o.getKwSubOption("c"));
       assertNull(o.getKwSubOption("d"));
     } catch (ParseException e) {
-      fail(e.getMessage());
+      fail();
     }
   }
 
@@ -167,7 +167,7 @@ public class TestOption extends TestCase {
     try {
       assertEquals(2, new Option("a", null, 2, 3).getMinParameters());
     } catch (ParseException e) {
-      fail(e.getMessage());
+      fail();
     }
   }
 
@@ -175,7 +175,7 @@ public class TestOption extends TestCase {
     try {
       assertEquals(3, new Option("a", null, 2, 3).getMaxParameters());
     } catch (ParseException e) {
-      fail(e.getMessage());
+      fail();
     }
   }
 }

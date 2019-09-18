@@ -38,7 +38,7 @@ public class TestCommandLine extends TestCase {
       assertEquals(1, c.getParameters().size());
       assertSame(p, c.getParameters().get(0));
     } catch (ParseException e) {
-      fail(e.getMessage());
+      fail();
     }
   }
 

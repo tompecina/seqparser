@@ -39,7 +39,7 @@ public class TestParameter extends TestCase {
       Option o = new Option("a", "b");
       assertSame(o, new Parameter(o).getOption());
     } catch (ParseException e) {
-      fail(e.getMessage());
+      fail();
     }
   }
 
@@ -57,7 +57,7 @@ public class TestParameter extends TestCase {
       assertSame(s1, p.getSubParameter(0));
       assertSame(s2, p.getSubParameter(1));
     } catch (ParseException e) {
-      fail(e.getMessage());
+      fail();
     }
   }
 
@@ -78,7 +78,7 @@ public class TestParameter extends TestCase {
       assertTrue(p.hasKwSubParameter("y"));
       assertFalse(p.hasKwSubParameter("z"));
     } catch (ParseException e) {
-      fail(e.getMessage());
+      fail();
     }
   }
 }

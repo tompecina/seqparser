@@ -98,6 +98,48 @@ public class Options {
   }
 
   /**
+   * Adds an option.
+   *
+   * @param shortOpt the short option string
+   * @param longOpt the long option string
+   * @return the new option
+   * @throws ParseException on invalid option string(s) or if a duplicate option is passed
+   */
+  public Option addOption(final String shortOpt, final String longOpt) throws ParseException {
+    return addOption(shortOpt, longOpt, 0, 0);
+  }
+
+  /**
+   * Adds an option.
+   *
+   * @param shortOpt the short option string
+   * @param longOpt the long option string
+   * @param numParameters the number of sub-parameters
+   * @return the new option
+   * @throws ParseException on invalid option string(s) or if a duplicate option is passed
+   */
+  public Option addOption(final String shortOpt, final String longOpt, final int numParameters) throws ParseException {
+    return addOption(shortOpt, longOpt, numParameters, numParameters);
+  }
+
+  /**
+   * Adds an option.
+   *
+   * @param shortOpt the short option string
+   * @param longOpt the long option string
+   * @param minParameters the minimum number of sub-parameters
+   * @param maxParameters the maximum number of sub-parameters
+   * @return the new option
+   * @throws ParseException on invalid option string(s) or if a duplicate option is passed
+   */
+  public Option addOption(final String shortOpt, final String longOpt, final int minParameters, final int maxParameters)
+      throws ParseException {
+    final Option option = new Option(shortOpt, longOpt, minParameters, maxParameters);
+    addOption(option);
+    return option;
+  }
+
+  /**
    * Creates the options object.
    */
   public Options() {

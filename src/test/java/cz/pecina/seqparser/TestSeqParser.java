@@ -45,7 +45,7 @@ public class TestSeqParser extends TestCase {
       assertEquals(';', new SeqParser().setSep(';').getSep());
       assertEquals(';', new SeqParser(';').getSep());
     } catch (ParseException e) {
-      fail(e.getMessage());
+      fail();
     }
     char[] succ = {',', ':', 'a', 'á', 'ř', '-', ';', '!', ',', 'Ω'};
     char[] fail = {' ', '\t', '\n', '\r', '\u000b', '\u000c'};
@@ -308,7 +308,7 @@ public class TestSeqParser extends TestCase {
         }
       }
     } catch (Exception e) {
-      fail(e.getMessage());
+      fail();
     }
   }
 }

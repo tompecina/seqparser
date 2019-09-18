@@ -46,7 +46,7 @@ public class TestSubParameter extends TestCase {
     try {
       new SubParameter("42", ParameterType.Integer);
     } catch (ParseException e) {
-      fail(e.getMessage());
+      fail();
     }
   }
 
@@ -54,7 +54,7 @@ public class TestSubParameter extends TestCase {
     try {
       assertSame(ParameterType.String, new SubParameter("a", ParameterType.String).getSubOption());
     } catch (ParseException e) {
-      fail(e.getMessage());
+      fail();
     }
   }
 
@@ -64,7 +64,7 @@ public class TestSubParameter extends TestCase {
       assertFalse(new SubParameter(" ", ParameterType.String).isEmpty());
       assertFalse(new SubParameter("0", ParameterType.String).isEmpty());
     } catch (ParseException e) {
-      fail(e.getMessage());
+      fail();
     }
   }
 
@@ -72,7 +72,7 @@ public class TestSubParameter extends TestCase {
     try {
       assertEquals("a", new SubParameter("a", ParameterType.String).getAsString());
     } catch (ParseException e) {
-      fail(e.getMessage());
+      fail();
     }
   }
 
@@ -80,7 +80,7 @@ public class TestSubParameter extends TestCase {
     try {
       assertEquals(-18, new SubParameter("-18", ParameterType.Integer).getAsInt());
     } catch (ParseException e) {
-      fail(e.getMessage());
+      fail();
     }
   }
 
@@ -88,7 +88,7 @@ public class TestSubParameter extends TestCase {
     try {
       assertEquals(4.5f, new SubParameter("4.5", ParameterType.Float).getAsFloat());
     } catch (ParseException e) {
-      fail(e.getMessage());
+      fail();
     }
   }
 
@@ -96,7 +96,7 @@ public class TestSubParameter extends TestCase {
     try {
       assertEquals(-18.5, new SubParameter("-18.5", ParameterType.Double).getAsDouble());
     } catch (ParseException e) {
-      fail(e.getMessage());
+      fail();
     }
   }
 }
