@@ -8,10 +8,5 @@ jdk: "oraclejdk9"
 
 env: "JAVAC_SOURCE_VER=9 JAVAC_TARGET_VER=9"
 
-addons:
-  apt:
-    packages:
-      - "oracle-java9-installer"
-
 script:
   - "mvn -B test"
