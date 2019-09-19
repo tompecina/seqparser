@@ -11,7 +11,7 @@ env: "JAVAC_SOURCE_VER=9 JAVAC_TARGET_VER=9"
 addons:
   apt:
     packages:
-      - "oracle-java8-installer"
+      - "oracle-java9-installer"
 
 script:
-  - "mvn test"
+  - "mvn -B test"
