@@ -35,7 +35,7 @@ import java.util.regex.Pattern;
  * @author Tomáš Pecina
  * @version 1.0.0
  */
-public class Option {
+public final class Option {
 
   // static logger
   private static final Logger log = Logger.getLogger(Option.class.getName());
@@ -47,31 +47,31 @@ public class Option {
   }
 
   /** Regex for testing a short option. */
-  protected static final Pattern RE_SHORT = Pattern.compile("^[\\p{Alpha}_][\\p{Alnum}_]*$");
+  static final Pattern RE_SHORT = Pattern.compile("^[\\p{Alpha}_][\\p{Alnum}_]*$");
 
   /** Regex for testing a long option. */
-  protected static final Pattern RE_LONG = Pattern.compile("^[\\p{Alpha}_][\\p{Alnum}_]*(-[\\p{Alnum}_]+)*$");
+  static final Pattern RE_LONG = Pattern.compile("^[\\p{Alpha}_][\\p{Alnum}_]*(-[\\p{Alnum}_]+)*$");
 
   /** Regex for testing a sub-option. */
-  protected static final Pattern RE_SUB = RE_LONG;
+  static final Pattern RE_SUB = RE_LONG;
 
   /** Short option string. */
-  protected String shortOpt;
+  private final String shortOpt;
 
   /** Long option string. */
-  protected String longOpt;
+  private final String longOpt;
 
   /** Minimum number of parameters. */
-  protected int minParameters;
+  private final int minParameters;
 
   /** Maximum number of parameters. */
-  protected int maxParameters;
+  private final int maxParameters;
 
   /** List of sub-options. */
-  protected final List<SubOption> subOptions = new ArrayList<>();
+  private final List<SubOption> subOptions = new ArrayList<>();
 
   /** Map of keyword sub-options. */
-  protected final Map<String, SubOption> kwSubOptions = new HashMap<>();
+  private final Map<String, SubOption> kwSubOptions = new HashMap<>();
 
   /**
    * Gets the short option string.

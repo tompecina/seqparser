@@ -34,7 +34,7 @@ import java.util.logging.Logger;
  * @author Tomáš Pecina
  * @version 1.0.0
  */
-public class Options {
+public final class Options {
 
   // static logger
   private static final Logger log = Logger.getLogger(Options.class.getName());
@@ -46,13 +46,13 @@ public class Options {
   }
 
   /** List of options. */
-  protected final List<Option> options = new ArrayList<>();
+  private final List<Option> options = new ArrayList<>();
 
   /** Map of options by short option string. */
-  protected final Map<String, Option> shortMap = new HashMap<>();
+  private final Map<String, Option> shortMap = new HashMap<>();
 
   /** Map of options by long option string. */
-  protected final Map<String, Option> longMap = new HashMap<>();
+  private final Map<String, Option> longMap = new HashMap<>();
 
   /**
    * Gets the option using the short option string.

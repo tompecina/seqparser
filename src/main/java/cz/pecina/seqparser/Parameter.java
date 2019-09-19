@@ -34,7 +34,7 @@ import java.util.logging.Logger;
  * @author Tomáš Pecina
  * @version 1.0.0
  */
-public class Parameter {
+public final class Parameter {
 
   // static logger
   private static final Logger log = Logger.getLogger(Parameter.class.getName());
@@ -46,13 +46,13 @@ public class Parameter {
   }
 
   /** The option describing the parameter. */
-  protected Option option;
+  private final Option option;
 
   /** List of sub-parameters. */
-  protected final List<SubParameter> subParameters = new ArrayList<>();
+  private final List<SubParameter> subParameters = new ArrayList<>();
 
   /** Map of keyword sub-parameters. */
-  protected final Map<String, SubParameter> kwSubParameters = new HashMap<>();
+  private final Map<String, SubParameter> kwSubParameters = new HashMap<>();
 
   /**
    * Gets the option describing the parameter.
@@ -96,7 +96,7 @@ public class Parameter {
    *
    * @param subParameter the sub-parameter
    */
-  protected void addSubParameter(final SubParameter subParameter) {
+  void addSubParameter(final SubParameter subParameter) {
     subParameters.add(subParameter);
   }
 
@@ -144,7 +144,7 @@ public class Parameter {
    * @param key the keyword
    * @param subParameter the keyword sub-parameter
    */
-  protected void addKwSubParameter(final String key, final SubParameter subParameter) {
+  void addKwSubParameter(final String key, final SubParameter subParameter) {
     kwSubParameters.put(key, subParameter);
   }
 
@@ -153,7 +153,7 @@ public class Parameter {
    *
    * @param option the option describing the parameter
    */
-  protected Parameter(final Option option) {
+  Parameter(final Option option) {
     this.option = option;
   }
 }

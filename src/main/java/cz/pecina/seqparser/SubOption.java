@@ -30,7 +30,7 @@ import java.util.logging.Logger;
  * @author Tomáš Pecina
  * @version 1.0.0
  */
-public class SubOption {
+public final class SubOption {
 
   // static logger
   private static final Logger log = Logger.getLogger(SubOption.class.getName());
@@ -42,7 +42,7 @@ public class SubOption {
   }
 
   /** Type of the parameter. */
-  protected ParameterType type;
+  private final ParameterType type;
 
   /**
    * Gets the type of the sub-option.

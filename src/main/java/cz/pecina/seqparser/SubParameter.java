@@ -30,7 +30,7 @@ import java.util.logging.Logger;
  * @author Tomáš Pecina
  * @version 1.0.0
  */
-public class SubParameter {
+public final class SubParameter {
 
   // static logger
   private static final Logger log = Logger.getLogger(SubParameter.class.getName());
@@ -42,10 +42,10 @@ public class SubParameter {
   }
 
   /** Sub-options describing the sub-parameter. */
-  protected SubOption subOption;
+  private final SubOption subOption;
 
   /** Raw (string) value of the sub-parameter. */
-  protected String value;
+  private final String value;
 
   /**
    * Gets the sub-option.
@@ -108,7 +108,7 @@ public class SubParameter {
    * @param subOption the sub-option describing the sub-parameter
    * @throws ParseException on parse error
    */
-  protected SubParameter(final String str, final SubOption subOption) throws ParseException {
+  SubParameter(final String str, final SubOption subOption) throws ParseException {
     this.value = str;
     this.subOption = subOption;
     if ((str == null) || !subOption.getType().check(str)) {

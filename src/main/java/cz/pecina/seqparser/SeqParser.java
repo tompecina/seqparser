@@ -37,7 +37,7 @@ import java.util.regex.Pattern;
  * @author Tomáš Pecina
  * @version 1.0.0
  */
-public class SeqParser {
+public final class SeqParser {
 
   // static logger
   private static final Logger log = Logger.getLogger(SeqParser.class.getName());
@@ -52,17 +52,17 @@ public class SeqParser {
   private static final String SPEC_STR = "\u007f";
 
   /** The default separator character. */
-  protected static final char DEFAULT_SEP = ',';
+  static final char DEFAULT_SEP = ',';
 
   /** Regex for checking option. */
-  protected static final Pattern RE_OPT = Pattern.compile("^-[-]?[\\p{Alpha}_].*$");
+  static final Pattern RE_OPT = Pattern.compile("^-[-]?[\\p{Alpha}_].*$");
 
   /** Regex for parsing sub-parameters. */
-  protected static final Pattern RE_KW =
+  static final Pattern RE_KW =
       Pattern.compile("^(?:([\\p{Alpha}_][\\p{Alnum}_]*(?:-[\\p{Alnum}_]+)*)=)?(['\"]?)(.*)\\2$");
 
   /** The separator character. */
-  protected char sep = DEFAULT_SEP;
+  private char sep = DEFAULT_SEP;
 
   /**
    * Gets the separator string. It is used to divide sub-parameter values.
@@ -91,7 +91,7 @@ public class SeqParser {
   /**
    * Parser for the string of sub-parameters.
    */
-  protected static class Splitter implements Iterator<String>, Iterable<String> {
+  static class Splitter implements Iterator<String>, Iterable<String> {
 
     // constants
     private static final char ESCAPE = '\\';
@@ -168,7 +168,7 @@ public class SeqParser {
      * @param inp the input string
      * @param sep the separator character
      */
-    protected Splitter(final String inp, final char sep) {
+    Splitter(final String inp, final char sep) {
       this.inp = inp;
       this.sep = sep;
     }

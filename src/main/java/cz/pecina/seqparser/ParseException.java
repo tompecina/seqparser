@@ -30,7 +30,7 @@ import java.util.logging.Logger;
  * @author Tomáš Pecina
  * @version 1.0.0
  */
-public class ParseException extends Exception {
+public final class ParseException extends Exception {
 
   // static logger
   private static final Logger log = Logger.getLogger(ParseException.class.getName());
@@ -46,7 +46,7 @@ public class ParseException extends Exception {
    *
    * @param message the detail message
    */
-  public ParseException(final String message) {
+  ParseException(final String message) {
     super(message);
   }
 }
