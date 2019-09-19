@@ -1,0 +1,17 @@
+# .travis.yml
+
+language: "java"
+
+sudo: "false"
+
+jdk: "oraclejdk9"
+
+env: "JAVAC_SOURCE_VER=9 JAVAC_TARGET_VER=9"
+
+addons:
+  apt:
+    packages:
+      - "oracle-java8-installer"
+
+script:
+  - "mvn test"
