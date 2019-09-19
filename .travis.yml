@@ -17,3 +17,7 @@ addons:
   apt:
     packages:
       - "oracle-java8-installer"
+      - "ant-optional"
+
+script:
+  - "mvn -B test"
