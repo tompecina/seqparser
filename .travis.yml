@@ -4,6 +4,11 @@ language: "java"
 
 sudo: "false"
 
-jdk: "oraclejdk9"
+jdk: "oraclejdk8"
 
-env: "JAVAC_SOURCE_VER=9 JAVAC_TARGET_VER=9"
+env: "JAVAC_SOURCE_VER=8 JAVAC_TARGET_VER=8"
+
+addons:
+  apt:
+    packages:
+      - "oracle-java8-installer"
