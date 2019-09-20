@@ -6,14 +6,13 @@ language: "java"
 
 sudo: "false"
 
-matrix:
-  include:
-    - jdk: "oraclejdk8"
-      env: "JAVAC_SOURCE_VER=1.8 JAVAC_TARGET_VER=1.8"
-    - jdk: "openjdk8"
-      env: "JAVAC_SOURCE_VER=1.8 JAVAC_TARGET_VER=1.8"
-    - jdk: "oraclejdk9"
-      env: "JAVAC_SOURCE_VER=9 JAVAC_TARGET_VER=9"
+jdk:
+  - "openjdk8"
+  - "openjdk-ea"
+  - "oraclejdk8"
+  - "oraclejdk9"
+  - "oraclejdk11"
+  - "oraclejdk-es"
 
 addons:
   apt:
