@@ -32,7 +32,7 @@ import java.util.logging.Logger;
  * @author Tomáš Pecina
  * @version 1.0.0
  */
-public final class CommandLine {
+public final class CommandLine extends ArrayList<Parameter> {
 
   // static logger
   private static final Logger log = Logger.getLogger(CommandLine.class.getName());
@@ -43,9 +43,6 @@ public final class CommandLine {
     return "CommandLine";
   }
 
-  /** List of parsed parameters. */
-  private final List<Parameter> parameters = new ArrayList<>();
-
   /** List of remaining (unparsed) arguments. */
   private final List<String> remArgs = new ArrayList<>();
 
@@ -55,7 +52,7 @@ public final class CommandLine {
    * @return the list of parameters
    */
   public List<Parameter> getParameters() {
-    return parameters;
+    return this;
   }
 
   /**
@@ -64,7 +61,7 @@ public final class CommandLine {
    * @param parameter the parameter
    */
   void addParameter(final Parameter parameter) {
-    parameters.add(parameter);
+    add(parameter);
   }
 
   /**
@@ -83,12 +80,5 @@ public final class CommandLine {
    */
   void addRemArg(final String arg) {
     remArgs.add(arg);
-  }
-
-  /**
-   * Creates the command line object.
-   */
-  public CommandLine() {
-    // no action
   }
 }
