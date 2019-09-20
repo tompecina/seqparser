@@ -34,7 +34,7 @@ import java.util.logging.Logger;
  * @author Tomáš Pecina
  * @version 1.0.0
  */
-public final class Options extends ArrayList<Option> {
+public final class Options {
 
   // static logger
   private static final Logger log = Logger.getLogger(Options.class.getName());
@@ -44,6 +44,9 @@ public final class Options extends ArrayList<Option> {
   public String toString() {
     return "Options";
   }
+
+  /** List of options. */
+  private final List<Option> options = new ArrayList<>();
 
   /** Map of options by short option string. */
   private final Map<String, Option> shortMap = new HashMap<>();
@@ -84,7 +87,7 @@ public final class Options extends ArrayList<Option> {
     if (((shortOpt != null) && shortMap.containsKey(shortOpt)) || ((longOpt != null) && longMap.containsKey(longOpt))) {
       throw new ParseException("Duplicate option");
     }
-    add(option);
+    options.add(option);
     if (shortOpt != null) {
       shortMap.put(shortOpt, option);
     }
@@ -134,5 +137,12 @@ public final class Options extends ArrayList<Option> {
     final Option option = new Option(shortOpt, longOpt, minParameters, maxParameters);
     addOption(option);
     return option;
+  }
+
+  /**
+   * Creates the options object.
+   */
+  public Options() {
+    // no action
   }
 }
