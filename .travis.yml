@@ -7,8 +7,8 @@ language: "java"
 sudo: "false"
 
 jdk:
-  - "openjdk8"
+  - "openjdk9"
   - "openjdk-ea"
-  - "oraclejdk8"
-  - "oraclejdk12"
+  - "oraclejdk9"
+  - "oraclejdk13"
   - "oraclejdk-ea"
