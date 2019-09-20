@@ -10,5 +10,4 @@ jdk:
   - "openjdk9"
   - "openjdk-ea"
   - "oraclejdk9"
-  - "oraclejdk13"
   - "oraclejdk-ea"
