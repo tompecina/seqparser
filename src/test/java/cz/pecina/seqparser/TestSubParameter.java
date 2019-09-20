@@ -99,4 +99,23 @@ public class TestSubParameter extends TestCase {
       fail();
     }
   }
+
+  public void testGet() {
+    try {
+      ParameterType pt = new ParameterType() {
+          @Override
+          public boolean check(String s) {
+            return true;
+          }
+          @Override
+          public Object get(String s) {
+            return "b";
+          }
+        };
+      SubParameter sp = new SubParameter("a", new SubOption(pt));
+      assertEquals("b", sp.get());
+    } catch (ParseException e) {
+      fail();
+    }
+  }
 }

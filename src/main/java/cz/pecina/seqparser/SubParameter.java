@@ -102,6 +102,15 @@ public final class SubParameter {
   }
 
   /**
+   * Gets the value using the method provided by {@link ParameterType}.
+   *
+   * @return the value
+   */
+  public Object get() {
+    return subOption.getType().get(value);
+  }
+
+  /**
    * Creates and parses the sub-parameter.
    *
    * @param str the input string

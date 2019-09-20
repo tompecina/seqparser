@@ -39,6 +39,16 @@ public interface ParameterType {
   boolean check(java.lang.String str);
 
   /**
+   * Gets the value in custom format.
+   *
+   * @param val the value as a string
+   * @return the converted value
+   */
+  default Object get(java.lang.String val) {
+    throw new AssertionError();
+  }
+
+  /**
    * Predefined string type.
    */
   @SuppressWarnings("checkstyle:ConstantName")

@@ -37,6 +37,30 @@ public class TestParameterType extends TestCase {
     }
   }
 
+  public void testGet() {
+    try {
+      ParameterType.String.getType().get("");
+    } catch (AssertionError expected) {
+    } catch (Exception e) {
+      fail();
+    }
+    try {
+      ParameterType pt = new ParameterType() {
+          @Override
+          public boolean check(String s) {
+            return true;
+          }
+          @Override
+          public Object get(String s) {
+            return "x";
+          }
+        };
+      assertEquals("x", pt.get(""));
+    } catch (Exception e) {
+      fail();
+    }
+  }
+
   public void testInteger() {
     String[] succ = {"0", "00", "007", "-0", "+6", "42"};
     String[] fail = {null, "", "abc", "0xaa", "0.", "1e4", "--0", "--1"};
