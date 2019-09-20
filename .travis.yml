@@ -12,8 +12,3 @@ jdk:
   - "oraclejdk8"
   - "oraclejdk12"
   - "oraclejdk-ea"
-
-addons:
-  apt:
-    packages:
-      - "oracle-java8-installer"
