@@ -140,6 +140,122 @@ public final class Options {
   }
 
   /**
+   * An option builder.
+   */
+  public static class Builder {
+
+    // the options being built
+    private Options options = new Options();
+
+    /**
+     * Adds an option.
+     *
+     * @param option the option
+     * @return the builder object, to facilitate chaining
+     * @throws ParseException if a duplicate option is passed
+     */
+    public Builder addOption(final Option option) throws ParseException {
+      options.addOption(option);
+      return this;
+    }
+
+    /**
+     * Adds an option.
+     *
+     * @param shortOpt the short option string
+     * @param longOpt the long option string
+     * @return the builder object, to facilitate chaining
+     * @throws ParseException on invalid option string(s) or if a duplicate option is passed
+     */
+    public Builder addOption(final String shortOpt, final String longOpt) throws ParseException {
+      options.addOption(shortOpt, longOpt);
+      return this;
+    }
+
+    /**
+     * Adds an option.
+     *
+     * @param shortOpt the short option string
+     * @param longOpt the long option string
+     * @param numParameters the number of sub-parameters
+     * @return the builder object, to facilitate chaining
+     * @throws ParseException on invalid option string(s) or if a duplicate option is passed
+     */
+    public Builder addOption(final String shortOpt, final String longOpt, final int numParameters) throws ParseException {
+      options.addOption(shortOpt, longOpt, numParameters);
+      return this;
+    }
+
+    /**
+     * Adds an option.
+     *
+     * @param shortOpt the short option string
+     * @param longOpt the long option string
+     * @param minParameters the minimum number of sub-parameters
+     * @param maxParameters the maximum number of sub-parameters
+     * @return the builder object, to facilitate chaining
+     * @throws ParseException on invalid option string(s) or if a duplicate option is passed
+     */
+    public Builder addOption(final String shortOpt, final String longOpt, final int minParameters, final int maxParameters)
+        throws ParseException {
+      options.addOption(shortOpt, longOpt, minParameters, maxParameters);
+      return this;
+    }
+
+    // gets the last option
+    private Option getLast() throws ParseException {
+      final List<Option> opts = options.options;
+      if (opts.isEmpty()) {
+        throw new ParseException("Adding a sub-option to empty options");
+      }
+      return opts.get(opts.size() - 1);
+    }
+
+    /**
+     * Adds a sub-option.
+     *
+     * @param subOption the sub-option
+     * @return the builder object, to facilitate chaining
+     * @throws ParseException if options empty
+     */
+    public Builder addSubOption(final SubOption subOption) throws ParseException {
+      getLast().addSubOption(subOption);
+      return this;
+    }
+
+    /**
+     * Adds a keyword sub-option.
+     *
+     * @param key the keyword
+     * @param subOption the keyword sub-option
+     * @return the builder object, to facilitate chaining
+     * @throws ParseException on invalid sub-option string(s) or if options empty
+     */
+    public Builder addKwSubOption(final String key, final SubOption subOption) throws ParseException {
+      getLast().addKwSubOption(key, subOption);
+      return this;
+    }
+
+    /**
+     * Builds the options.
+     *
+     * @return the options object
+     */
+    public Options build() {
+      return options;
+    }
+  }
+
+  /**
+   * Gets a new option builder.
+   *
+   * @return a new option builder
+   */
+  public static Builder builder() {
+    return new Builder();
+  }
+
+  /**
    * Creates the options object.
    */
   public Options() {

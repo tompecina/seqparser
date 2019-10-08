@@ -101,6 +101,7 @@ public class TestOptions extends TestCase {
     } catch (ParseException e) {
       fail();
     }
+
     o = new Options();
     try {
       s = o.addOption("a", "b", 1, 2);
@@ -111,5 +112,36 @@ public class TestOptions extends TestCase {
     } catch (ParseException e) {
       fail();
     }
+  }
+
+  public void testBuilder() {
+    try {
+      Option s = new Option("a", "b");
+      Options o = Options.builder()
+        .addOption(s)
+        .addOption("s", "l")
+        .addOption("c", "d", 1)
+        .addSubOption(ParameterType.String)
+        .addOption("e", "f", 0, 1)
+        .addSubOption(ParameterType.Integer)
+        .addKwSubOption("s", ParameterType.String)
+        .addKwSubOption("i", ParameterType.Integer)
+        .build();
+
+      assertEquals("b", o.getOptionShort("a").getLongOpt());
+      assertEquals("s", o.getOptionLong("l").getShortOpt());
+      assertSame(ParameterType.String, o.getOptionShort("c").getSubOption(0));
+      assertSame(ParameterType.Integer, o.getOptionShort("e").getSubOption(0));
+      assertSame(ParameterType.String, o.getOptionShort("e").getKwSubOption("s"));
+      assertSame(ParameterType.Integer, o.getOptionShort("e").getKwSubOption("i"));
+
+    } catch (ParseException e) {
+      fail();
+    }
+
+    try {
+      Options.builder().addSubOption(ParameterType.String);
+      fail();
+    } catch (ParseException expected) { }
   }
 }
