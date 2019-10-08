@@ -32,6 +32,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <debug>false</debug>
   </properties>
 
   <dependencies>
@@ -58,12 +59,6 @@
 
       <resource>
 	<filtering>false</filtering>
-	<directory>${basedir}/src/main/resources</directory>
-	<targetPath>${project.build.outputDirectory}</targetPath>
-      </resource>
-
-      <resource>
-	<filtering>false</filtering>
 	<directory>${basedir}</directory>
 	<includes>
 	  <include>README.md</include>
@@ -84,7 +79,7 @@
           <release>8</release>
           <showDeprecation>true</showDeprecation>
           <showWarnings>true</showWarnings>
-          <debug>true</debug>
+          <debug>${debug}</debug>
 	</configuration>
       </plugin>
 

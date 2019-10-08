@@ -57,6 +57,7 @@
 
     <module name="RegexpHeader">
       <property name="headerFile" value="src/checkstyle/resources/header.txt"/>
+      <property name="fileExtensions" value="java"/>
     </module>
 
     <module name="TreeWalker">
